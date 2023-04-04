@@ -1,151 +1,5 @@
-/* function welcome(nombre){
-    alert("Bienvenido/a" + " " + nombre);
-}
-let nombreUser= prompt("Ingresa tu nombre ");
-   welcome(nombreUser)
-    alert("MF productos de limpieza");
-
-    let opcion = prompt(
-        "Seleccione un producto de limpieza \n1 Jabón para lavar ropa \n2 Suavizantes \n3 Lavandina \n4 Perfuminas \n5 Desodorante de pisos \n6 Mas productos \n7- Salir ");
-    while (opcion !="7"){
-        switch (opcion) {
-//inicio de jabon para la ropa
-        case "1":
-            alert("Seleccionaste Jabón para lavar ropa");
-            let jabon = prompt("Seleccione el tipo de Jabón \n1 Ariel \n2 Skip \n7- Salir");
-            while (jabon !="7"){
-            switch (jabon) {
-                case "1":
-                    alert("Ariel x 5L = $600");
-                break;
-                case "2":
-                    alert("Skip x 5L = $650");
-                break;
-                default:
-                    alert ("opcion no valida")
-                break;
-            }
-            break;}
-//fin de jabon para la ropa
-            opcion = prompt(
-                "Seleccione un producto de limpieza \n1 Jabón para lavar ropa \n2 Suavizantes \n3 Lavandina \n4 Perfuminas \n5 Desodorante de pisos \n6 Mas productos \n7- Salir ");
-              break;
-//inicio  de suavizantes
-              case "2":
-                alert("Seleccionaste Suavizantes");
-                let suavizante = prompt("Seleccione el tipo de suavizante \n1 Vivere \n2 Confort \n3 Triple fragancia \n7- Salir");
-                while (suavizante !="7"){
-                switch(suavizante){
-                case "1":
-                    alert("Vivere x 5L = $550");
-                    break;
-                case "2":
-                    alert("Confort x 5L = $600");
-                    break;
-                case "3":
-                    alert("Triple fragancia x 5L = $600");
-                    break;
-                default:
-                    alert ("opcion no valida")
-                    break;
-            } break;}
-            opcion = prompt(
-                "Seleccione un producto de limpieza \n1 Jabón para lavar ropa \n2 Suavizantes \n3 Lavandina \n4 Perfuminas \n5 Desodorante de pisos \n6 Mas productos \n7- Salir ");
-              break;
-        case "3":
-            alert("Seleccionaste Lavandina x 5L = $350")
-            opcion = prompt(
-                "Seleccione un producto de limpieza \n1 Jabón para lavar ropa \n2 Suavizantes \n3 Lavandina \n4 Perfuminas \n5 Desodorante de pisos \n6 Mas productos \n7- Salir ");
-            break;
-//inicio de perfuminas
-        case "4":
-            alert("Seleccionaste Perfuminas")
-            let perfumina = prompt("seleccione el tipo de perfumina\n1 Cherry \n2 Limón \n3 Lavanda \n4 Rosedales \n7- Salir");
-            while(perfumina !="7"){
-            switch(perfumina){
-            case "1":
-                alert("Cherry x 1/2L = $350");
-                break;
-            case "2":
-                alert("Limón x 1/2L = $350");
-                break;
-            case "3":
-                alert("Lavanda x 1/2L = $350");
-                break;
-            case "4":
-                alert("Rosedales x 1/2L = $350")
-                break;
-            default:
-                alert ("opcion no valida")
-                break;
-            } break;}
-//fin de perfuminas
-            opcion = prompt(
-                "Seleccione un producto de limpieza \n1 Jabón para lavar ropa \n2 Suavizantes \n3 Lavandina \n4 Perfuminas \n5 Desodorante de pisos \n6 Mas productos \n7- Salir ");
-                break;
-//incio de desodorantes de pisos
-            case "5":
-            alert("Seleccionaste Desodorante de pisos")
-        let desodorante = prompt("Seleccione el tipo de desodorante para piso \n1 Lysoform \n2 Citronela \n3 Espadol \n4 Procenex \n5 Bebe  \n6 Chicle \n7- Salir")
-        while (desodorante !="7"){      
-        switch(desodorante){
-            case "1":
-                alert("Lysoform x 5L = $350")
-                break;
-            case "2":
-                alert("Citronela x 5L = $350")
-                break;
-            case "3":
-                alert("Espadol x 5L = $350")
-                break;
-            case "4":
-                alert("Procenex x 5L = $350")
-            case "5":
-                alert("Bebe x 5L = $350")
-                break;
-            case "6":
-                alert("Chicle x 5L = $350")
-                break;
-            default:
-                alert ("opcion no valida")
-                break;
-            } break;}  
-//fin de desodorante de pisos
-            opcion = prompt(
-                "Seleccione un producto de limpieza \n1 Jabón para lavar ropa \n2 Suavizantes \n3 Lavandina \n4 Perfuminas \n5 Desodorante de pisos \n6 Mas productos \n7- Salir ");
-                break;
-//incio de mas productos
-            case "6":
-        let masProductos=prompt(
-            "Mas productos de limpieza \n1 Desengrasante \n2 Detergente \n3 Secador de piso \n7- Salir");
-            while (masProductos != "7"){
-            switch (masProductos) {
-            case "1":
-                alert("Seleccionaste Desengrasante x 5L = $400");
-                break;
-            case "2":
-                alert("Seleccionaste Detergente x 5L = $650")
-                break;
-            case "3":
-                alert("Seleccionaste Secador de piso x 1 unidad = $450")
-                break;
-            default:
-                alert("Opción no válida");
-            break;
-            } break;}
-//fin  de mas productos 
-            opcion = prompt(
-                "Seleccione un producto de limpieza \n1 Jabón para lavar ropa \n2 Suavizantes \n3 Lavandina \n4 Perfuminas \n5 Desodorante de pisos \n6 Mas productos \n7- Salir ");
-        break;
-      default:
-        alert("Opción no válida");
-        break;
-    }
-    opcion = prompt(
-        "Seleccione un producto de limpieza \n1 Jabón para lavar ropa \n2 Suavizantes \n3 Lavandina \n4 Perfuminas \n5 Desodorante de pisos \n6 Mas productos \n7- Salir ");
-  } */
-
 // INICIO DE CARRITO DE COMPRAS
+//Array de productos con objetos 
 const productos=[
     {nombre: "Secador de piso", precio: 450},
     {nombre: "Jabon Skip X 5l", precio: 650},
@@ -166,20 +20,26 @@ const productos=[
     {nombre: "Desodorante de piso Papaya X 5l", precio: 350},
     {nombre: "Desodorante de piso Lysoform X 5l", precio:350 },
 ];
+//Declaracion de variables
+let nombreUser
+let seleccion 
 let producto 
 let masProducto
 let degrVariedad
 let carrito = [];
 let todosLosProductos = productos.map((productos) => productos.nombre + " " + productos.precio + "$" );
 let precio = 0
+let unidades
+
+//Inicio de ingreso
 function welcome(nombre){
     alert("Bienvenido/a" + " " + nombre);
 }
-let nombreUser= prompt("Ingresa tu nombre ");
+nombreUser= prompt("Ingresa tu nombre ");
    welcome(nombreUser)
     alert("MF productos de limpieza te da la bienvenida");
 
-let seleccion = prompt("Desea comprar algun producto de limpieza? ingrese si o no")
+seleccion = prompt("Desea comprar algun producto de limpieza? ingrese si o no")
 
 
 while(seleccion!= "si" && seleccion !="no"){
@@ -193,6 +53,7 @@ if (seleccion=="si"){
     alert("Gracias por venir, hasta pronto!!")
     }
 
+//Inicio de productos y while, para evaluar los casos
 while(seleccion!= "no"){
      producto = prompt(
         "Seleccione el o los productos que desee añadir a su carritos de compras\n1 Secador de piso \n2 Jabon Skip X 5l \n3 Jabon Ariel X 5l\n4 Suavizante Vivere X 5l \n5 Suavizante Confort X 5l \n6 Suavizante Triple fragancia X 5l \nx mas productos ");    
@@ -218,7 +79,6 @@ while(seleccion!= "no"){
                 alert(precio = 500)
                 break;
                 default:
-        
             case"x":
             masProducto = prompt(
                 "Mas productos de limpieza \n1 Lavandina X 5l \n2 Detergente X 5l \n3 Desengrasante X 5l\n4 Perfumina X 1/2 L \n5 Desodorantes de piso ");
@@ -272,14 +132,14 @@ while(seleccion!= "no"){
                         }  
                     }  
                 } 
-        }
- let unidades =parseInt(prompt("cuantas unidades desea llevar ?"))
- carrito.push({producto, masProducto, degrVariedad, unidades, precio})
+            }
+    unidades =parseInt(prompt("cuantas unidades desea llevar ?"))
+    carrito.push({producto, masProducto, degrVariedad, unidades, precio})
     }
     else{alert("no tenemos ese producto")
 } 
 seleccion= prompt("Desea seguir comprando? ingrese: si o no ?")
-
+//Finalizando compra y devolviendo los precios de los productos.
 while(seleccion === "no"){
     alert("gracias por su compra, hasta pronto! ")
     carrito.forEach((carritoFinal)=> {
@@ -289,17 +149,6 @@ while(seleccion === "no"){
 break;
 } 
 }
-
-const total = carrito.reduce((ecc, el) => acc + el.precio * el.unidades, 0)
+//Final compra, devolucion total de todos los productos.
+const total = carrito.reduce((acc, el) => acc + el.precio * el.unidades, 0);
 alert (`El total a pagar por su compra es: ${total}`)
-
-
-/*   let opcion = prompt(
-    "Seleccione un producto de limpieza \n1 Jabón para lavar ropa \n2 Suavizantes \n3 Lavandina \n4 Perfuminas \n5 Desodorante de pisos \n6 Mas productos \n7- Salir ");
-    if (producto,masProducto,degrVariedad== "1"||producto,masProducto,degrVariedad== "2"||producto,masProducto,degrVariedad== "3"||producto,masProducto,degrVariedad== "4"||producto,masProducto,degrVariedad== "5"||producto,masProducto,degrVariedad== "6"||producto,masProducto,degrVariedad== "7"||
-producto,masProducto,degrVariedad== "8" && producto,masProducto,degrVariedad !="x"||producto,masProducto,degrVariedad != "z"){
-    let unidades = parseInt(prompt("cuantas unidades quiere llevar?"))
-    carrito.push({producto, masProducto,degrVariedad, unidades, precio})
-    alert(carrito)}
-    
-    */
