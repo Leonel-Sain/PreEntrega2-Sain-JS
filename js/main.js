@@ -145,32 +145,6 @@ let nombreUser= prompt("Ingresa tu nombre ");
         "Seleccione un producto de limpieza \n1 Jabón para lavar ropa \n2 Suavizantes \n3 Lavandina \n4 Perfuminas \n5 Desodorante de pisos \n6 Mas productos \n7- Salir ");
   } */
 
-//   const productos =[
-//     {id: 1, nombre: "jabon", precio: 350 },
-//     {id: 2, nombre: "desengrasante", precio: 650 },
-//     {id: 3, nombre: "lavandina", precio: 550 },
-//     {id: 4, nombre: "perfuminas", precio: 333 },
-//     {id: 5, nombre: "jabon", precio: 350 },
-//     {id: 6, nombre: "jabon", precio: 350 },
-//     {id: 7, nombre: "jabon", precio: 350 },
-
-//   ];
-
-//   const carrito=[];
-
-//   const encontrado= productos.find((el)=>{
-//     return el.nombre == prompt("ingresar producto");
-//   })
-//   alert.push (encontrado)
-//     alert(encontrado)
-// alert(carrito)
-/* const cajonCubiertos=prompt(["\n1 cuchillos $", "\n2 tenedores", "\n3Cucharas"])
-//console.log(arrayNumeros[0]);
-alert(cajonCubiertos)
-const carrito=[];*/
-
-
-
 // INICIO DE CARRITO DE COMPRAS
 const productos=[
     {nombre: "Secador de piso", precio: 450},
@@ -192,6 +166,9 @@ const productos=[
     {nombre: "Desodorante de piso Papaya X 5l", precio: 350},
     {nombre: "Desodorante de piso Lysoform X 5l", precio:350 },
 ];
+let producto 
+let masProducto
+let degrVariedad
 let carrito = [];
 let todosLosProductos = productos.map((productos) => productos.nombre + " " + productos.precio + "$" );
 let precio = 0
@@ -217,9 +194,8 @@ if (seleccion=="si"){
     }
 
 while(seleccion!= "no"){
-    let producto = prompt(
+     producto = prompt(
         "Seleccione el o los productos que desee añadir a su carritos de compras\n1 Secador de piso \n2 Jabon Skip X 5l \n3 Jabon Ariel X 5l\n4 Suavizante Vivere X 5l \n5 Suavizante Confort X 5l \n6 Suavizante Triple fragancia X 5l \nx mas productos ");    
-    /* let precio = 0 */
     if(producto == "1" || producto == "2" || producto == "3" || producto == "4" || producto == "5" || 
     producto == "6" || producto == "x" ){
         switch (producto) {
@@ -244,7 +220,7 @@ while(seleccion!= "no"){
                 default:
         
             case"x":
-            let masProducto = prompt(
+            masProducto = prompt(
                 "Mas productos de limpieza \n1 Lavandina X 5l \n2 Detergente X 5l \n3 Desengrasante X 5l\n4 Perfumina X 1/2 L \n5 Desodorantes de piso ");
                     if(masProducto == "1" || masProducto == "2" || masProducto == "3" ||masProducto == "4" || masProducto == "5");{
             switch(masProducto){
@@ -261,9 +237,8 @@ while(seleccion!= "no"){
                     alert(precio = 350)
                     break;
                     default:
-
                 case "5":
-            let degrVariedad= prompt(
+            degrVariedad= prompt(
                 "Seleccione una fragancia de pisos \n1 Citronela X 5l \n2 Espadol X 5l \n3 Procenex X 5l\n4 Bebe X 5l\n5 Lavanda X 5l \n6 Chicle X 5l \n7 Papaya X 5l \n8 Lysoform X 5l");            
                 if(degrVariedad == "1" || degrVariedad == "2" || degrVariedad == "3" || degrVariedad == "4" || degrVariedad == "5" || degrVariedad == "6" || degrVariedad == "7" || degrVariedad == "8");{
             switch(degrVariedad){
@@ -291,13 +266,15 @@ while(seleccion!= "no"){
                 case "8":
                     alert(precio = 350)
                     break;
-                    default:
+                        default:
+                    break;
                             }
                         }  
                     }  
                 } 
         }
- 
+ let unidades =parseInt(prompt("cuantas unidades desea llevar ?"))
+ carrito.push({producto, masProducto, degrVariedad, unidades, precio})
     }
     else{alert("no tenemos ese producto")
 } 
