@@ -38,6 +38,30 @@ function welcome(nombre){
 nombreUser= prompt("Ingresa tu nombre ");
    welcome(nombreUser)
     alert("MF productos de limpieza te da la bienvenida");
+    
+    //filtro de busqueda, prueba
+ /*const result =productos.find(elemento => elemento.precio > 30)
+    console.log(result);
+ 
+ const result = productos.filter(function (productosNombre){
+        if (productosNombre.nombre == "jabon" || "suavizante" || "lavandina"||
+        "detergente"|| "desengrasante"|| "perfumina" || "desodorante de piso" || "secador de piso" ){
+        return true}
+        }) */
+/*         alert("Usted busco:" + " " + result)
+        result = prompt("Desea agregarlo a su carrito de compras ? escriba si o no")
+        
+        while(result!= "si" && result!="no"){
+            alert ("Por favor ingresa si o no")
+            result = prompt("Desea agregarlo a su carrito de compras ? escriba si o no")
+        }
+        if (result=="si"){
+            unidades =parseInt(prompt("cuantas unidades desea llevar ?"))
+            carrito.push({producto, masProducto, degrVariedad, unidades, precio})
+            }else if(result == "no"){
+                alert("no tenemos ese producto")
+            } */
+//fin filtro de prueba, busqueda
 
 seleccion = prompt("Desea comprar algun producto de limpieza? ingrese si o no")
 
@@ -152,3 +176,8 @@ break;
 //Final compra, devolucion total de todos los productos.
 const total = carrito.reduce((acc, el) => acc + el.precio * el.unidades, 0);
 alert (`El total a pagar por su compra es: ${total}`)
+
+/* const encontrado= productos.find((prod)=>{
+    return prod.nombre=productos || prod.precio>100
+})
+prompt(encontrado("desea agregarlo al carrito de compras ?")) */
