@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- fontFamily -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <!-- Animaciones -->
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <!--link bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>	
@@ -11,16 +19,12 @@
     <title>Clase 1 y 2 de JavaScript</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg  bg-success p-2 text-dark bg-opacity-10">
+    <nav class="navbar navbar-expand-lg  bg-success p-2 text-dark bg-opacity-10 fixed-top">
     <div class="container-fluid">
-      <div class=" d-flex align-items-center ">
-        <img src="assets/imagenes/mf.png" width="100px" alt="">
-        <h6>Productos de limpieza</h6>
-      </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-              <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+              <div class="collapse navbar-collapse justify-content-left" id="navbarSupportedContent">
                 <ul class="navbar-nav  mb-2 mb-lg-0">
                   <li class="nav-item">
                     <a class="nav-link " href="#scrollspyHeading1">Nosotros</a>
@@ -32,30 +36,50 @@
                     <a class="nav-link " href="#scrollspyHeading3">Servicios</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link " href="#scrollspyHeading4">Compras  <img src="assets/iconos/carrito-compras.png" width="24px"  alt=""></a>
+                    <a class="nav-link " href="#compras">Compras  <img src="assets/iconos/carrito-compras.png" width="24px"  alt=""></a>
                   </li>
                  </ul>
             </div>
+            <div class="text-center align-items-center bs">
+              <input id="search" type="text" class="validate busqueda">
+              <label for="Search" for="search">Buscar</label>
+            </div>
     </div>
 </nav>
-<div class="imgBg">
+<!-- <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-item active">
+      <img class="d-block w-100"src="assets/imagenes/botellas-limpieza.jpg" width="50%" alt="">
+  </div>
+</div> -->
+<div class="container-fluid imgBg  justify-content-left">
+  <div class="row text-center align-items-center d-flex">
+    <div class="col-lg-4 ">
+      <img src="assets/imagenes/mf.png" width="80%" alt="">
+    </div>
+    <div class="col-lg-8 ">
+      <h1 class="title animate__animated  animate__fadeIn">Productos de Limpieza  <hr> </h1>
+      <h3 class="title2 animate__animated  animate__fadeIn">La mejor calidad en productos</h3>
+    </div>
+  </div>
 </div>
 <!-- FIN MENU BARRA -->
 <!-- INICIO DE CERTIFICADOS -->
 <div class="container-fluid d-flex justify-content-center intro">
-  <div class="col-8">
-      <div class="row xy-3">
-          <h2 class="">¿Necesitas productos de limpieza para tu hogar? <hr> Los mejores precios y productos los vas a encotrar aqui!<hr></h2>
-     <br><br> <br><br>
-      </div>
-      <div class="row xy-3">
-              <p> <strong>MF productos de limpieza</strong> Ofrece diferentes productos de limpieza para tu hogar, como
-              <strong>Perfuminas, </strong><strong>Jabón para la ropa, Skip o Ariel, </strong><strong>Suavizantes, </strong>
-              y mucho mas ! </p>
-      </div>
+  <div class="col-lg-4 col-md-4 col-sm-none ">
+  <div class="row justify-content-left">
+        <img src="assets/imagenes/limpieza.png" width="100%" alt="">
   </div>
 </div>
-<br><br><br><br>
+<div class="col-lg-8 col-md-8 col-sm-12 d-flex align-items-center">
+  <div class="row">
+      <h2>¿Necesitas productos de limpieza para tu hogar? <hr> Los mejores precios y productos los vas a encotrar aqui!<hr></h2>
+          <p> <strong>MF productos de limpieza</strong> Ofrece diferentes productos de limpieza para tu hogar, como
+          <strong>Perfuminas, </strong><strong>Jabón para la ropa, Skip o Ariel, </strong><strong>Suavizantes, </strong>
+          y mucho mas ! </p> 
+  </div>
+</div>
+</div>
+<br><br><br><br><br><br>
 <div class="container">
 <div class="row row-cols-1 row-cols-md-3 g-4">
   <div class="col">
@@ -64,6 +88,12 @@
       <div class="card-body">
         <h5 class="card-title">Jabon Ariel</h5>
         <p class="card-text">Jabon liquido tipo <strong>ARIEL</strong> X 5L, perfecta calidad y fragancia.</p>
+        <div class="row">
+          <div class="col text-center">
+          <h4>precio: $500</h4>
+        </div>  
+            <button type="button" class="btn btn-outline-primary">Añadir al carrito</button>
+        </div>
       </div>
     </div>
   </div>
@@ -71,17 +101,29 @@
     <div class="card">
       <img src="assets/imagenes/jabon-liquido-skip-MF.jpg" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">Jabon Skip</h5>
+        <h5 class="card-title" id="jabonSkip">Jabon Skip</h5>
         <p class="card-text">Jabon liquido tipo <strong>SKIP</strong> X 5L, perfecta calidad y fragancia.</p>
+        <div class="row">
+          <div class="col text-center">
+          <h4>Precio: $650</h4>
+        </div>  
+            <button type="button" class="btn btn-outline-primary">Añadir al carrito</button>
+        </div>
       </div>
     </div>
   </div>
   <div class="col">
     <div class="card">
-      <img src="assets/imagenes/detergente-MF.jpg" class="card-img-top" alt="...">
+      <img src="assets/imagenes/detergente-MF.jpg" class="card-img-top ph" alt="...">
       <div class="card-body">
         <h5 class="card-title">Detergente</h5>
         <p class="card-text">Detergente <strong>X 5L</strong> Perfecta calidad y efectividad.</p>
+        <div class="row">
+          <div class="col text-center">
+          <h4>Precio: $650</h4>
+        </div>  
+            <button type="button" class="btn btn-outline-primary">Añadir al carrito</button>
+        </div>
       </div>
     </div>
   </div>
@@ -91,6 +133,12 @@
       <div class="card-body">
         <h5 class="card-title">Lavandina</h5>
         <p class="card-text">Lavandina pura<strong>X 5L</strong> Perfecta calidad y efectivdad.</p>
+        <div class="row">
+          <div class="col text-center">
+          <h4>Precio: $350</h4>
+        </div>  
+            <button type="button" class="btn btn-outline-primary">Añadir al carrito</button>
+        </div>
       </div>
     </div>
   </div>
@@ -100,6 +148,12 @@
       <div class="card-body">
         <h5 class="card-title">Detergente</h5>
         <p class="card-text">Detergente <strong>X 1L</strong> Perfecta calidad y efectividad.</p>
+        <div class="row">
+          <div class="col text-center">
+          <h4>Precio: $200</h4>
+        </div>  
+            <button type="button" class="btn btn-outline-primary">Añadir al carrito</button>
+        </div>
       </div>
     </div>
   </div>
@@ -109,12 +163,42 @@
       <div class="card-body">
         <h5 class="card-title">Suavizante</h5>
         <p class="card-text">Suavizante tipo <strong>VIVERE</strong> X 5L Perfecta calidad y fragancia.</p>
+        <div class="row">
+          <div class="col text-center">
+          <h4>Precio: $600</h4>
+        </div>  
+            <button type="button" class="btn btn-outline-primary">Añadir al carrito</button>
+        </div>
       </div>
     </div>
   </div>
 </div>
 </div>
 <br><br><br><br>
+
+<div class="card text-center">
+  <div class="card-body">
+    <h5 class="card-title">carrito de compras</h5>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col">
+          <p id="productoSelec"></p>
+        </div>
+        <div class="col">
+          <p id="precio"></p>
+        </div>
+      </div>
+    </div>
+    <p class="card-text">Total de los elementos agregados al carrito de compras</p>
+    <div class="col">
+      <p id="totalElementos"> </p>
+      <div class="col">
+        <p id="totalPrecio"> </p>
+      </div>
+    </div>
+    <a href="#" id="compras" class="btn btn-primary">Realizar compra</a>
+  </div>
+</div>
     <script src="./js/main.js"></script>
 </body>
 </html>

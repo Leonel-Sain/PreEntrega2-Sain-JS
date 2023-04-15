@@ -1,30 +1,29 @@
 // INICIO DE CARRITO DE COMPRAS
 //Array de productos con objetos 
 const productos=[
-    {nombre: "Secador de piso", precio: 450},
-    {nombre: "Jabon Skip X 5l", precio: 650},
-    {nombre: "Jabon Ariel X 5l", precio: 500},
-    {nombre: "Jabon Skip X 1l", oferta: "Oferta!", precio: 120},
-    {nombre: "Jabon Ariel X 1l", oferta: "Oferta!",  precio: 150},
-    {nombre: "Suavizante Vivere X 1l", oferta: "Oferta!",  precio: 100},
-    {nombre: "Suavizante Confort X 1l", oferta: "Oferta!",  precio: 120},
-    {nombre: "Suavizante Vivere X 5l", precio: 550},
-    {nombre: "Suavizante Confort X 5l", precio: 600},
-    {nombre: "Suavizante Triple fragancia X 5l", precio: 600},
-    {nombre: "Lavandina X 5l", precio: 350},
-    {nombre: "Detergente X 5l", precio: 650},
-    {nombre: "Desengrasante X 5l", precio: 400},
-    {nombre: "Perfumina X 1/2 L", precio: 350},
-    {nombre: "Desodorante de piso Citronela X 5l", oferta: "Oferta!", precio: 250},
-    {nombre: "Desodorante de piso Espadol X 5l", precio:350},
-    {nombre: "Desodorante de piso Procenex X 5l", oferta: "Oferta!", precio:250},
-    {nombre: "Desodorante de piso Bebe X 5l", precio:350},
-    {nombre: "Desodorante de piso Lavanda X 5l", precio:350},
-    {nombre: "Desodorante de piso Chicle X 5l", oferta: "Oferta!", precio:250},
-    {nombre: "Desodorante de piso Papaya X 5l", precio: 350},
-    {nombre: "Desodorante de piso Lysoform X 5l", precio:350 },
+    {id: 1, nombre: "Secador de piso", precio: 450 , img: "detergente-MF.jpg"},
+    {id: 2, nombre: "Jabon Skip X 5l", precio: 650},
+    {id: 3, nombre: "Jabon Ariel X 5l", precio: 500},
+    {id: 4, nombre: "Jabon Skip X 1l", oferta: "Oferta!", precio: 120},
+    {id: 5, nombre: "Jabon Ariel X 1l", oferta: "Oferta!",  precio: 150},
+    {id: 6, nombre: "Suavizante Vivere X 1l", oferta: "Oferta!",  precio: 100},
+    {id: 7, nombre: "Suavizante Confort X 1l", oferta: "Oferta!",  precio: 120},
+    {id: 8, nombre: "Suavizante Vivere X 5l", precio: 550},
+    {id: 9, nombre: "Suavizante Confort X 5l", precio: 600},
+    {id: 10, nombre: "Suavizante Triple fragancia X 5l", precio: 600},
+    {id: 11, nombre: "Lavandina X 5l", precio: 350},
+    {id: 12, nombre: "Detergente X 5l", precio: 650},
+    {id: 13, nombre: "Desengrasante X 5l", precio: 400},
+    {id: 14, nombre: "Perfumina X 1/2 L", precio: 350},
+    {id: 15, nombre: "Desodorante de piso Citronela X 5l", oferta: "Oferta!", precio: 250},
+    {id: 16, nombre: "Desodorante de piso Espadol X 5l", precio:350},
+    {id: 17, nombre: "Desodorante de piso Procenex X 5l", oferta: "Oferta!", precio:250},
+    {id: 18, nombre: "Desodorante de piso Bebe X 5l", precio:350},
+    {id: 19, nombre: "Desodorante de piso Lavanda X 5l", precio:350},
+    {id: 20, nombre: "Desodorante de piso Chicle X 5l", oferta: "Oferta!", precio:250},
+    {id: 21, nombre: "Desodorante de piso Papaya X 5l", precio: 350},
+    {id: 22, nombre: "Desodorante de piso Lysoform X 5l", precio:350 },
 ];
-
 
 //Declaracion de variables
 let nombreUser
@@ -38,8 +37,27 @@ let precio = 0
 let unidades
 let prodEncontrado
 let oferta
+
+productos.forEach((product)=>{
+    let content = document.createElement()
+})
+//Funciones de búsqueda
+/* function buscarServicio(arr, filtro) {
+    const encontrado = arr.find((el) => {
+      return el.nombre.includes(filtro);
+    });
+    return encontrado;
+  }
+  function filtrarServicio(arr, filtro) {
+    const filtrado = arr.filter((el) => {
+      return el.nombre.includes(filtro);
+    });
+    return filtrado;
+  }
+  const btnSearch = document.querySelector("#btnSearch");
+  const inputs = document.querySelectorAll('input[type="text"]'); */
 //Inicio de ingreso
-function welcome(nombre){
+/* function welcome(nombre){
     alert("Bienvenido/a" + " " + nombre);
 }
 nombreUser= prompt("Ingresa tu nombre ");
@@ -202,5 +220,9 @@ break;
 //Final compra, devolucion total de todos los productos.
 const total = carrito.reduce((acc, el) => acc + el.precio * el.unidades, 0);
 alert (`El total a pagar por su compra es: ${total}`)
+ */
 
+/* const jabonSkip = document.querySelector("#jabonSkip")
 
+jabonSkip.innerText ="Ariel"
+console.log(jabonSkip); */
