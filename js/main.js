@@ -1,46 +1,74 @@
+const shop= document.querySelector("#shopContent")
+const btnCarrito = document.querySelector("#btnC")
+const precioProducto = document.querySelector("#precio")
+
+let comprar
+
+
+
 // INICIO DE CARRITO DE COMPRAS
-//Array de productos con objetos 
+//Array de productos con objetos
 const productos=[
-    {id: 1, nombre: "Secador de piso", precio: 450 , img: "detergente-MF.jpg"},
-    {id: 2, nombre: "Jabon Skip X 5l", precio: 650},
-    {id: 3, nombre: "Jabon Ariel X 5l", precio: 500},
-    {id: 4, nombre: "Jabon Skip X 1l", oferta: "Oferta!", precio: 120},
-    {id: 5, nombre: "Jabon Ariel X 1l", oferta: "Oferta!",  precio: 150},
-    {id: 6, nombre: "Suavizante Vivere X 1l", oferta: "Oferta!",  precio: 100},
-    {id: 7, nombre: "Suavizante Confort X 1l", oferta: "Oferta!",  precio: 120},
-    {id: 8, nombre: "Suavizante Vivere X 5l", precio: 550},
-    {id: 9, nombre: "Suavizante Confort X 5l", precio: 600},
-    {id: 10, nombre: "Suavizante Triple fragancia X 5l", precio: 600},
-    {id: 11, nombre: "Lavandina X 5l", precio: 350},
-    {id: 12, nombre: "Detergente X 5l", precio: 650},
-    {id: 13, nombre: "Desengrasante X 5l", precio: 400},
-    {id: 14, nombre: "Perfumina X 1/2 L", precio: 350},
-    {id: 15, nombre: "Desodorante de piso Citronela X 5l", oferta: "Oferta!", precio: 250},
-    {id: 16, nombre: "Desodorante de piso Espadol X 5l", precio:350},
-    {id: 17, nombre: "Desodorante de piso Procenex X 5l", oferta: "Oferta!", precio:250},
-    {id: 18, nombre: "Desodorante de piso Bebe X 5l", precio:350},
-    {id: 19, nombre: "Desodorante de piso Lavanda X 5l", precio:350},
-    {id: 20, nombre: "Desodorante de piso Chicle X 5l", oferta: "Oferta!", precio:250},
-    {id: 21, nombre: "Desodorante de piso Papaya X 5l", precio: 350},
-    {id: 22, nombre: "Desodorante de piso Lysoform X 5l", precio:350 },
+    {id: 1, nombre: "Secador de piso", precio: 450,img:"assets/imagenes/detergente-MF.jpg" },
+    {id: 2, nombre: "Jabon Skip X 5l", precio: 650, img: "assets/imagenes/jabon-liquido-skip-MF.jpg" },
+    {id: 3, nombre: "Jabon Ariel X 5l", precio: 500, img: "assets/imagenes/jabon-liquido-ariel-MF.jpg"},
+    {id: 4, nombre: "Jabon Skip X 1l", oferta: "Oferta!", precio: 120, img: "assets/imagenes/jabon-liquido-ariel-MF.jpg"},
+    {id: 5, nombre: "Jabon Ariel X 1l", oferta: "Oferta!",  precio: 150, img: "assets/imagenes/jabon-liquido-ariel-MF.jpg"},
+    {id: 6, nombre: "Suavizante Vivere X 1l", oferta: "Oferta!",  precio: 100, img:"assets/imagenes/suavizante-vivere-MF.jpg"},
+    {id: 7, nombre: "Suavizante Confort X 1l", oferta: "Oferta!",  precio: 120, img: "assets/imagenes/jabon-liquido-ariel-MF.jpg"},
+    {id: 8, nombre: "Suavizante Vivere X 5l", precio: 550, img: "assets/imagenes/jabon-liquido-ariel-MF.jpg"},
+    {id: 9, nombre: "Suavizante Confort X 5l", precio: 600, img: "assets/imagenes/jabon-liquido-ariel-MF.jpg"},
+    {id: 10, nombre: "Suavizante Triple fragancia X 5l", precio: 600, img: "assets/imagenes/jabon-liquido-ariel-MF.jpg"},
+    {id: 11, nombre: "Lavandina X 5l", precio: 350, img:"assets/imagenes/lavandina-MF.jpg"},
+    {id: 12, nombre: "Detergente X 1l", precio: 200, img:"assets/imagenes/detergente-MF.jpg" },
+    {id: 13, nombre: "Desengrasante X 5l", precio: 400, img: "assets/imagenes/jabon-liquido-ariel-MF.jpg"},
+    {id: 14, nombre: "Perfumina X 1/2 L", precio: 350, img: "assets/imagenes/jabon-liquido-ariel-MF.jpg"},
+    {id: 15, nombre: "Desodorante de piso Citronela X 5l", oferta: "Oferta!", precio: 250, img: "assets/imagenes/jabon-liquido-ariel-MF.jpg"},
+    {id: 16, nombre: "Desodorante de piso Espadol X 5l", precio:350, img: "assets/imagenes/jabon-liquido-ariel-MF.jpg"},
+    {id: 17, nombre: "Desodorante de piso Procenex X 5l", oferta: "Oferta!", precio:250, img: "assets/imagenes/jabon-liquido-ariel-MF.jpg"},
+    {id: 18, nombre: "Desodorante de piso Bebe X 5l", precio:350, img: "assets/imagenes/jabon-liquido-ariel-MF.jpg"},
+    {id: 19, nombre: "Desodorante de piso Lavanda X 5l", precio:350, img: "assets/imagenes/jabon-liquido-ariel-MF.jpg"},
+    {id: 20, nombre: "Desodorante de piso Chicle X 5l", oferta: "Oferta!", precio:250, img: "assets/imagenes/jabon-liquido-ariel-MF.jpg"},
+    {id: 21, nombre: "Desodorante de piso Papaya X 5l", precio: 350, img: "assets/imagenes/jabon-liquido-ariel-MF.jpg"},
+    {id: 22, nombre: "Desodorante de piso Lysoform X 5l", precio:350 , img: "assets/imagenes/jabon-liquido-ariel-MF.jpg"},
 ];
+let carrito = [];
+/* let prodLimpieza = JSON.parse(localStorage.getItem("productos")) || productos;
+ */
+productos.forEach((product)=>{
+    let content = document.createElement("div");
+    content.className = "card";
+    content.innerHTML = ` 
+    <img class"ph" src="${product.img}">
+    <h5>${product.nombre}</h5>
+    <h4 class="price" >${product.precio} $</h4>
+    `;
+     shop.append(content)
+
+    comprar = document.createElement("button")
+    comprar.innerText = "Añadir al carrito";
+    comprar.className = "btn btn-outline-primary"
+    content.append(comprar); 
+})
 
 //Declaracion de variables
-let nombreUser
+//let nombreUser
+
+
+
+
 let seleccion 
 let producto 
 let masProducto
 let degrVariedad
-let carrito = [];
+
 let todosLosProductos = productos.map((productos) => productos.nombre + " " + productos.precio + "$" );
 let precio = 0
 let unidades
 let prodEncontrado
 let oferta
 
-productos.forEach((product)=>{
-    let content = document.createElement()
-})
+
 //Funciones de búsqueda
 /* function buscarServicio(arr, filtro) {
     const encontrado = arr.find((el) => {

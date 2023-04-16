@@ -42,7 +42,7 @@
             </div>
             <div class="text-center align-items-center bs">
               <input id="search" type="text" class="validate busqueda">
-              <label for="Search" for="search">Buscar</label>
+              <label id="btnSearch" for="search">Buscar</label>
             </div>
     </div>
 </nav>
@@ -80,7 +80,7 @@
 </div>
 </div>
 <br><br><br><br><br><br>
-<div class="container">
+<!--<div class="container">
 <div class="row row-cols-1 row-cols-md-3 g-4">
   <div class="col">
     <div class="card">
@@ -90,9 +90,9 @@
         <p class="card-text">Jabon liquido tipo <strong>ARIEL</strong> X 5L, perfecta calidad y fragancia.</p>
         <div class="row">
           <div class="col text-center">
-          <h4>precio: $500</h4>
-        </div>  
-            <button type="button" class="btn btn-outline-primary">Añadir al carrito</button>
+            <h4 id="precio"></h4>
+          </div>  
+            <button type="button" class="btn btn-outline-primary" id="btnC">Añadir al carrito</button>
         </div>
       </div>
     </div>
@@ -105,9 +105,9 @@
         <p class="card-text">Jabon liquido tipo <strong>SKIP</strong> X 5L, perfecta calidad y fragancia.</p>
         <div class="row">
           <div class="col text-center">
-          <h4>Precio: $650</h4>
+          <h4 id="precio"></h4>
         </div>  
-            <button type="button" class="btn btn-outline-primary">Añadir al carrito</button>
+            <button type="button" class="btn btn-outline-primary" id="btnC">Añadir al carrito</button>
         </div>
       </div>
     </div>
@@ -120,9 +120,9 @@
         <p class="card-text">Detergente <strong>X 5L</strong> Perfecta calidad y efectividad.</p>
         <div class="row">
           <div class="col text-center">
-          <h4>Precio: $650</h4>
-        </div>  
-            <button type="button" class="btn btn-outline-primary">Añadir al carrito</button>
+            <h4 id="precio"></h4>
+          </div>  
+            <button type="button" class="btn btn-outline-primary" id="btnC">Añadir al carrito</button>
         </div>
       </div>
     </div>
@@ -135,9 +135,9 @@
         <p class="card-text">Lavandina pura<strong>X 5L</strong> Perfecta calidad y efectivdad.</p>
         <div class="row">
           <div class="col text-center">
-          <h4>Precio: $350</h4>
-        </div>  
-            <button type="button" class="btn btn-outline-primary">Añadir al carrito</button>
+            <h4 id="precio"></h4>
+          </div>  
+            <button type="button" class="btn btn-outline-primary" id="btnC">Añadir al carrito</button>
         </div>
       </div>
     </div>
@@ -150,9 +150,9 @@
         <p class="card-text">Detergente <strong>X 1L</strong> Perfecta calidad y efectividad.</p>
         <div class="row">
           <div class="col text-center">
-          <h4>Precio: $200</h4>
-        </div>  
-            <button type="button" class="btn btn-outline-primary">Añadir al carrito</button>
+            <h4 id="precio"></h4>
+          </div>  
+            <button type="button" class="btn btn-outline-primary" id="btnC">Añadir al carrito</button>
         </div>
       </div>
     </div>
@@ -165,39 +165,42 @@
         <p class="card-text">Suavizante tipo <strong>VIVERE</strong> X 5L Perfecta calidad y fragancia.</p>
         <div class="row">
           <div class="col text-center">
-          <h4>Precio: $600</h4>
+          <h4 id="precio"></h4>
         </div>  
-            <button type="button" class="btn btn-outline-primary">Añadir al carrito</button>
+            <button type="button" class="btn btn-outline-primary" id="btnC">Añadir al carrito</button>
         </div>
       </div>
     </div>
   </div>
 </div>
 </div>
-<br><br><br><br>
-
-<div class="card text-center">
+<br><br><br><br> -->
+<!-- carrito de compras -->
+<!-- <div class="card text-center">
   <div class="card-body">
     <h5 class="card-title">carrito de compras</h5>
     <div class="container-fluid">
       <div class="row">
         <div class="col">
-          <p id="productoSelec"></p>
+          <p id="productoSelec"> --><!-- mostrar los productos seleccionados en el carrito --><!-- </p>
         </div>
         <div class="col">
-          <p id="precio"></p>
+          <p id="precio"> --> <!-- mostrar el precio de cada productos  --><<!-- /p>
         </div>
       </div>
     </div>
     <p class="card-text">Total de los elementos agregados al carrito de compras</p>
     <div class="col">
-      <p id="totalElementos"> </p>
+      <p id="totalElementos"> --><!-- agregar el total de los elementos en el carrito --><!--  </p>
       <div class="col">
-        <p id="totalPrecio"> </p>
+        <p id="totalPrecio"> --><!-- agregar el total del precio finalizado --><!--  </p>
       </div>
     </div>
-    <a href="#" id="compras" class="btn btn-primary">Realizar compra</a>
+    <a href="#" id="compras" class="btn btn-primary">Realizar compra  --><!-- realizar el evento para comprar --><!-- </a>
   </div>
+</div> -->
+<div id="shopContent" class="shop-content"> 
+
 </div>
     <script src="./js/main.js"></script>
 </body>
