@@ -36,7 +36,7 @@
                     <a class="nav-link " href="#scrollspyHeading3">Servicios</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link " href="#compras">Compras  <img src="assets/iconos/carrito-compras.png" width="24px"  alt=""></a>
+                    <a class="nav-link " id="verCarrito" href="#compras">Compras <img src="assets/iconos/carrito-compras.png" width="24px"  alt=""><span id="cantidadCarrito" class="cantidad-carrito"> </span> </a>
                   </li>
                  </ul>
             </div>
@@ -53,7 +53,7 @@
 </div> -->
 <div class="container-fluid imgBg  justify-content-left">
   <div class="row text-center align-items-center d-flex">
-    <div class="col-lg-4 ">
+    <div class="col-lg-4 col-md-none col-sm-none ">
       <img src="assets/imagenes/mf.png" width="80%" alt="">
     </div>
     <div class="col-lg-8 ">
@@ -199,9 +199,12 @@
     <a href="#" id="compras" class="btn btn-primary">Realizar compra  --><!-- realizar el evento para comprar --><!-- </a>
   </div>
 </div> -->
-<div id="shopContent" class="shop-content"> 
+<!-- SHOP CONTENT -->
+<div id="shopContent" class="shop-content"> <!-- contenido dinamico. --></div>
 
-</div>
+<!-- MODAL CONTENT -->
+<div id="modalContainer" class="modalCarrito"> <!--contenido dinamico del modal. --></div>
+
     <script src="./js/main.js"></script>
 </body>
 </html>
