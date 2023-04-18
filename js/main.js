@@ -7,7 +7,7 @@ const cantidadCarrito = document.querySelector ("#cantidadCarrito");
 let content 
 let comprar
 let carritoContent
-let carrito = [];
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 // INICIO DE CARRITO DE COMPRAS
 //Array de productos con objetos
@@ -75,6 +75,7 @@ productos.forEach((product)=>{
     }
     console.log(carrito);
     carritoCounter();
+    saveLocal();
     });
 });
 /* HEADER CONTENT CARRITO */
@@ -104,11 +105,29 @@ const pintarCarrito = () => {
                 <img  src="${product.img}">
                 <h3>${product.nombre}</h3>
                 <h4>${product.precio} $</h4>
+                <span class="restar"> - </span>
                 <h5>Cantidad: ${product.cantidad}</h5>
+                <span class="sumar"> + </span>
                 <h5>Total: ${product.cantidad * product.precio}</h5>
-
                 `;
+
         modalContainer.append(carritoContent);
+        let restar = carritoContent.querySelector(".restar")
+        restar.addEventListener("click", () =>{
+            if(product.cantidad !== 1){
+            product.cantidad--;
+        }
+            saveLocal();
+            pintarCarrito();
+        });
+
+        let sumar = carritoContent.querySelector (".sumar")
+        sumar.addEventListener("click", () => {
+            product.cantidad++;
+            saveLocal();
+            pintarCarrito();
+        });
+
         let eliminar = document.createElement("span");
         eliminar.innerText= "✖";
         eliminar.className= "delete-product";
@@ -132,15 +151,25 @@ const eliminarProductos = () => {
         return carritoId !== foundId;
     })
     carritoCounter();
+    saveLocal();
     pintarCarrito();
 };
-
+//contador
 const carritoCounter = () => {
     cantidadCarrito.style.display = "block";
-    cantidadCarrito.innerText = carrito.length;
+    const carritoLength = carrito.length;
+    localStorage.setItem("carritoLength", JSON.stringify(carritoLength))
+    cantidadCarrito.innerText = JSON.parse(localStorage.getItem("carritoLength"));
+
 };
 
+carritoCounter();
 
+//set item = para setiar a localstorage mandar informacion
+const saveLocal = () => {
+    localStorage.setItem("carrito", JSON.stringify (carrito));
+};
+//get item = obtenemos lo que guardamos con el set item
 
 
 

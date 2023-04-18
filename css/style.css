@@ -116,13 +116,23 @@ body{
  /* carrito contenido */
 
  .cantidad-carrito{
-    background-color: red;
+    background-color: rgb(24, 130, 192);
     color: white;
-    border-radius: 50%;
-    font-size: 12px;
-    padding: 4px;
-    top: 37px;
-    right: 14px;
-    position: absolute;
+    border-radius: 12%;
+    font-size: 20px;
+    padding: 15px;
     display: none;
  }
+ .restar{
+   cursor: pointer;
+   font-size: 30px;
+}
+
+.sumar{
+   cursor: pointer;
+   font-size: 30px;
+}
+.contador{
+   display: flex;
+   height: 55px;
+}

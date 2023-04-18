@@ -19,38 +19,45 @@
     <title>Clase 1 y 2 de JavaScript</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg  bg-success p-2 text-dark bg-opacity-10 fixed-top">
+  <!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg  bg-success p-2 text-dark bg-opacity-10 fixed-top">
     <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
               <div class="collapse navbar-collapse justify-content-left" id="navbarSupportedContent">
-                <ul class="navbar-nav  mb-2 mb-lg-0">
+                <ul class="navbar-nav  mb-3 mb-lg-1">
                   <li class="nav-item">
-                    <a class="nav-link " href="#scrollspyHeading1">Nosotros</a>
+                    <a class="nav-link " href="#scrollspyHeading1">/ Nosotros</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#scrollspyHeading2">Fotos</a>
+                    <a class="nav-link" href="#scrollspyHeading2">/ Fotos</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link " href="#scrollspyHeading3">Servicios</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link " id="verCarrito" href="#compras">Compras <img src="assets/iconos/carrito-compras.png" width="24px"  alt=""><span id="cantidadCarrito" class="cantidad-carrito"> </span> </a>
+                    <a class="nav-link " href="#scrollspyHeading3">/ Servicios</a>
                   </li>
                  </ul>
+                 <div class="align-items-center bs">
+                  <label id="btnSearch" class="btn btn-outline-primary" for="search">Buscar</label>
+                  <input id="search" type="text" class="validate busqueda">
+                </div>
             </div>
-            <div class="text-center align-items-center bs">
-              <input id="search" type="text" class="validate busqueda">
-              <label id="btnSearch" for="search">Buscar</label>
-            </div>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+              <ul class="navbar-nav  mb-3 mb-lg-1">
+                  <li class="nav-item">
+                    <a  class="nav-link " id="verCarrito" href="#compras">Compras<img src="assets/iconos/carrito-compras.png" width="35px"  alt=""></a>
+                  </li>
+                   <li class="nav-item">
+                      <div class="contador">
+                      <span id="cantidadCarrito" class="cantidad-carrito btn btn-outline-primary"> </span>
+                    </div>
+                  </li>
+               </ul>
+          </div>
     </div>
 </nav>
-<!-- <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-item active">
-      <img class="d-block w-100"src="assets/imagenes/botellas-limpieza.jpg" width="50%" alt="">
-  </div>
-</div> -->
+<!-- FIN NAVBAR -->
+<!-- BANNER -->
 <div class="container-fluid imgBg  justify-content-left">
   <div class="row text-center align-items-center d-flex">
     <div class="col-lg-4 col-md-none col-sm-none ">
@@ -62,143 +69,26 @@
     </div>
   </div>
 </div>
-<!-- FIN MENU BARRA -->
-<!-- INICIO DE CERTIFICADOS -->
+<!-- FIN BANNER -->
+
+<!--  INTRODUCCION A PRODUCTOS-->
 <div class="container-fluid d-flex justify-content-center intro">
   <div class="col-lg-4 col-md-4 col-sm-none ">
-  <div class="row justify-content-left">
-        <img src="assets/imagenes/limpieza.png" width="100%" alt="">
+    <div class="row justify-content-left">
+          <img src="assets/imagenes/limpieza.png" width="100%" alt="">
+    </div>
   </div>
-</div>
-<div class="col-lg-8 col-md-8 col-sm-12 d-flex align-items-center">
-  <div class="row">
-      <h2>¿Necesitas productos de limpieza para tu hogar? <hr> Los mejores precios y productos los vas a encotrar aqui!<hr></h2>
-          <p> <strong>MF productos de limpieza</strong> Ofrece diferentes productos de limpieza para tu hogar, como
-          <strong>Perfuminas, </strong><strong>Jabón para la ropa, Skip o Ariel, </strong><strong>Suavizantes, </strong>
-          y mucho mas ! </p> 
+  <div class="col-lg-8 col-md-8 col-sm-12 d-flex align-items-center">
+    <div class="row">
+        <h2>¿Necesitas productos de limpieza para tu hogar? <hr> Los mejores precios y productos los vas a encotrar aqui!<hr></h2>
+            <p> <strong>MF productos de limpieza</strong> Ofrece diferentes productos de limpieza para tu hogar, como
+            <strong>Perfuminas, </strong><strong>Jabón para la ropa, Skip o Ariel, </strong><strong>Suavizantes, </strong>
+            y mucho mas ! </p> 
+    </div>
   </div>
-</div>
 </div>
 <br><br><br><br><br><br>
-<!--<div class="container">
-<div class="row row-cols-1 row-cols-md-3 g-4">
-  <div class="col">
-    <div class="card">
-      <img src="assets/imagenes/jabon-liquido-ariel-MF.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Jabon Ariel</h5>
-        <p class="card-text">Jabon liquido tipo <strong>ARIEL</strong> X 5L, perfecta calidad y fragancia.</p>
-        <div class="row">
-          <div class="col text-center">
-            <h4 id="precio"></h4>
-          </div>  
-            <button type="button" class="btn btn-outline-primary" id="btnC">Añadir al carrito</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <img src="assets/imagenes/jabon-liquido-skip-MF.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title" id="jabonSkip">Jabon Skip</h5>
-        <p class="card-text">Jabon liquido tipo <strong>SKIP</strong> X 5L, perfecta calidad y fragancia.</p>
-        <div class="row">
-          <div class="col text-center">
-          <h4 id="precio"></h4>
-        </div>  
-            <button type="button" class="btn btn-outline-primary" id="btnC">Añadir al carrito</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <img src="assets/imagenes/detergente-MF.jpg" class="card-img-top ph" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Detergente</h5>
-        <p class="card-text">Detergente <strong>X 5L</strong> Perfecta calidad y efectividad.</p>
-        <div class="row">
-          <div class="col text-center">
-            <h4 id="precio"></h4>
-          </div>  
-            <button type="button" class="btn btn-outline-primary" id="btnC">Añadir al carrito</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <img src="assets/imagenes/lavandina-MF.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Lavandina</h5>
-        <p class="card-text">Lavandina pura<strong>X 5L</strong> Perfecta calidad y efectivdad.</p>
-        <div class="row">
-          <div class="col text-center">
-            <h4 id="precio"></h4>
-          </div>  
-            <button type="button" class="btn btn-outline-primary" id="btnC">Añadir al carrito</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <img src="assets/imagenes/detergente-1L-MF.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Detergente</h5>
-        <p class="card-text">Detergente <strong>X 1L</strong> Perfecta calidad y efectividad.</p>
-        <div class="row">
-          <div class="col text-center">
-            <h4 id="precio"></h4>
-          </div>  
-            <button type="button" class="btn btn-outline-primary" id="btnC">Añadir al carrito</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <img src="assets/imagenes/suavizante-vivere-MF.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Suavizante</h5>
-        <p class="card-text">Suavizante tipo <strong>VIVERE</strong> X 5L Perfecta calidad y fragancia.</p>
-        <div class="row">
-          <div class="col text-center">
-          <h4 id="precio"></h4>
-        </div>  
-            <button type="button" class="btn btn-outline-primary" id="btnC">Añadir al carrito</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-<br><br><br><br> -->
-<!-- carrito de compras -->
-<!-- <div class="card text-center">
-  <div class="card-body">
-    <h5 class="card-title">carrito de compras</h5>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col">
-          <p id="productoSelec"> --><!-- mostrar los productos seleccionados en el carrito --><!-- </p>
-        </div>
-        <div class="col">
-          <p id="precio"> --> <!-- mostrar el precio de cada productos  --><<!-- /p>
-        </div>
-      </div>
-    </div>
-    <p class="card-text">Total de los elementos agregados al carrito de compras</p>
-    <div class="col">
-      <p id="totalElementos"> --><!-- agregar el total de los elementos en el carrito --><!--  </p>
-      <div class="col">
-        <p id="totalPrecio"> --><!-- agregar el total del precio finalizado --><!--  </p>
-      </div>
-    </div>
-    <a href="#" id="compras" class="btn btn-primary">Realizar compra  --><!-- realizar el evento para comprar --><!-- </a>
-  </div>
-</div> -->
+
 <!-- SHOP CONTENT -->
 <div id="shopContent" class="shop-content"> <!-- contenido dinamico. --></div>
 
