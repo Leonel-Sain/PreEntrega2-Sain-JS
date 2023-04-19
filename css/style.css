@@ -3,6 +3,7 @@ body{
     padding: 0%;
 
 }
+/* Banner */
 .imgBg{
     display: flex;
     background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.116), rgba(0, 0, 0, 0.116)), url(..//assets/imagenes/botellas-limpieza.jpg);
@@ -27,7 +28,6 @@ body{
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.438);
 }
-
 .shop-content{
     display: flex;
     justify-content: space-around;
@@ -136,9 +136,10 @@ body{
    display: flex;
    height: 55px;
 }
+/* FALTA ARREGLA EL RESPONSIVE */
 
-@media (max-width: 769px){
+@media (max-width: 968px){
    .imgMf{
-      width: 10%;
+      display: none;
    }
-}
+} 
