@@ -1,3 +1,5 @@
+const busqueda = document.querySelector("#search")
+const buttonBusqueda = document.querySelector ("#btnSearch")
 const shop= document.querySelector("#shopContent");
 const btnCarrito = document.querySelector("#btnC");
 const precioProducto = document.querySelector("#precio");
@@ -7,6 +9,7 @@ const cantidadCarrito = document.querySelector ("#cantidadCarrito");
 let content 
 let comprar
 let carritoContent
+let prodEncontrado
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 // INICIO DE CARRITO DE COMPRAS
@@ -38,7 +41,26 @@ const productos=[
 
 /* let prodLimpieza = JSON.parse(localStorage.getItem("productos")) || productos;
  */
+////////////////////////METODO DE FILTRADO NO SOLUCIONADO//////////////////////////////////////////////////////////////
+/* const filtrarProductos = () =>{
+    console.log(busqueda.value);
+    const texto = filtrarProductos.value.toLowerCase();
+    for(prodEncontrado of productos){
+        let nombre = prodEncontrado.nombre.toLowerCase();
+        if(nombre)
+    }
+} 
+buttonBusqueda.addEventListener("click", filtrarProductos)*/
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /* CARD PRODUCT */
+
+//Listeners de búsqueda
+search.addEventListener("input", () => {
+    let nuevoFiltro = filtrar(productos, search.value, "search");
+    crearHtml(nuevoFiltro);
+  });
+  ////////////////////////////////////////////////////////////////////////////////////
 productos.forEach((product)=>{
     content = document.createElement("div");
     content.className = "card";
@@ -57,6 +79,7 @@ productos.forEach((product)=>{
     comprar.addEventListener("click",() =>{
 
         const repeat = carrito.some((repeatProduct) => repeatProduct.id === product.id);
+        
         if(repeat){
             carrito.map((prod) => {
                 if(prod.id === product.id){
@@ -64,7 +87,6 @@ productos.forEach((product)=>{
                 }
             });
         }else{
-
         carrito.push({
             id: product.id,
             img: product.img,
@@ -162,7 +184,6 @@ const carritoCounter = () => {
     cantidadCarrito.innerText = JSON.parse(localStorage.getItem("carritoLength"));
 
 };
-
 carritoCounter();
 
 //set item = para setiar a localstorage mandar informacion
