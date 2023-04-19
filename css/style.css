@@ -136,3 +136,9 @@ body{
    display: flex;
    height: 55px;
 }
+
+@media (max-width: 769px){
+   .imgMf{
+      width: 10%;
+   }
+}

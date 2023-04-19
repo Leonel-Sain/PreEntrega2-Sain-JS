@@ -1,4 +1,5 @@
 const busqueda = document.querySelector("#search")
+const shopBusqueda = document.querySelector("#shopBusqueda")
 const buttonBusqueda = document.querySelector ("#btnSearch")
 const shop= document.querySelector("#shopContent");
 const btnCarrito = document.querySelector("#btnC");
@@ -55,12 +56,47 @@ buttonBusqueda.addEventListener("click", filtrarProductos)*/
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /* CARD PRODUCT */
 
+const buscador = () => {
+    let inputTexto = document.getElementById('search');
+    inputTexto.addEventListener('change', () => {
+      let buscador = inputTexto.value;
+      console.log(buscador);
+      prodEncontrado= productos.filter((productos) =>
+        productos.nombre.includes(buscador.toUpperCase())
+      );
+
+      shopBusqueda.innerHTML = '';
+
+      prodEncontrado.forEach((productos) => {
+        content = document.createElement("div");
+        content.className = "card";
+        let { id, nombre, precio, img, } = productos;
+  
+        content.innerHTML = ` 
+        <img class"ph" src="${product.img}">
+        <h5>${product.nombre}</h5>
+        <h4 class="price" >${product.precio} $</h4>
+        `;
+        shop.append(content)
+
+        comprar = document.createElement("button")
+        comprar.innerText = "Añadir al carrito";
+        comprar.className = "btn btn-outline-primary"
+        prodEncontrado.innerHTML = content;
+        prodEncontrado
+          .addEventListener('click', () => carrito(productos));
+        content.append(comprar);
+      });
+    });
+  };
+    buscador ();
+
 //Listeners de búsqueda
-search.addEventListener("input", () => {
+/* search.addEventListener("input", () => {
     let nuevoFiltro = filtrar(productos, search.value, "search");
     crearHtml(nuevoFiltro);
-  });
-  ////////////////////////////////////////////////////////////////////////////////////
+  }); */
+  
 productos.forEach((product)=>{
     content = document.createElement("div");
     content.className = "card";
