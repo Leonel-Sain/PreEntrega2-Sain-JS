@@ -15,13 +15,12 @@ let prodEncontrado
 let restar
 let sumar
 let eliminar
+let product
 //get item = obtenemos lo que guardamos con el set item
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-// INICIO DE CARRITO DE COMPRAS
-//ARRAY DE PRODUCTOS CON OBJETOS
 const productos=[
-    {id: 1, nombre: "Secador de piso", precio: 450,img:"assets/imagenes/detergente-MF.jpg", cantidad: 1, },
+    {id: 1, nombre: "Secador de piso", precio: 450,img: "assets/imagenes/detergente-MF.jpg", cantidad: 1, },
     {id: 2, nombre: "Jabon Skip X 5l", precio: 650, img: "assets/imagenes/jabon-liquido-skip-MF.jpg",cantidad: 1,},
     {id: 3, nombre: "Jabon Ariel X 5l", precio: 500, img: "assets/imagenes/jabon-liquido-ariel-MF.jpg",cantidad: 1,},
     {id: 4, nombre: "Jabon Skip X 1l", precio: 120, img: "assets/imagenes/jabon-liquido-ariel-MF.jpg",cantidad: 1,},
@@ -44,9 +43,19 @@ const productos=[
     {id: 21, nombre: "Desodorante de piso Papaya X 5l", precio: 350, img: "assets/imagenes/jabon-liquido-ariel-MF.jpg",cantidad: 1,},
     {id: 22, nombre: "Desodorante de piso Lysoform X 5l", precio:350 , img: "assets/imagenes/jabon-liquido-ariel-MF.jpg",cantidad: 1,},
 ];
-//INTENTO DE BARRA DE BUSQUEDA, por consola busca, pero no pinta las card en dom
+
+fetch ("./data/datos.json")
+.then ((resp) => resp.json())
+.then ((data) =>{
+    console.log (data);
+})
+
+// INICIO DE CARRITO DE COMPRAS
+
+//INTENTO DE BARRA DE BUSQUEDA, por consola busca, pero no pinta la card
+
 const buscador = () => {
-    let inputTexto = document.getElementById('search');
+    let inputTexto = document.getElementById("search");
     inputTexto.addEventListener('change', () => {
       let buscador = inputTexto.value;
       console.log(buscador);
@@ -93,9 +102,22 @@ productos.forEach((product)=>{
     comprar.innerText = "Añadir al carrito";
     comprar.className = "btn btn-outline-primary"
     content.append(comprar); 
+/* libreria, button */
 
     comprar.addEventListener("click",() =>{
-
+        Toastify({
+            text: "Su producto fue agregado con exito",
+            duration: 3000,
+            close: true,
+            gravity: "bottom", 
+            position: "right", 
+            stopOnFocus: true, 
+            style: {
+              background: "linear-gradient(to right, rgba(34, 52, 151, 0.021), rgb(128, 215, 203)))",
+            },
+            onClick: function(){} 
+          }).showToast();
+ /* agregado al carrito */
         const repeat = carrito.some((repeatProduct) => repeatProduct.id === product.id);
         
 (repeat)? carrito.map((prod) => {
@@ -109,7 +131,6 @@ productos.forEach((product)=>{
             cantidad: product.cantidad,
         });
     
-    console.log(carrito);
     carritoCounter();
     saveLocal();
     });
@@ -169,6 +190,7 @@ const pintarCarrito = () => {
         eliminar.className= "delete-product";
         carritoContent.append(eliminar)
         eliminar.addEventListener("click", eliminarProductos);
+        
     });
 /* PRECIO FINAL DE LOS PRODUCTOS (el total)*/
     const total = carrito.reduce((acc, el) => acc + el.precio * el.cantidad, 0);
@@ -202,3 +224,18 @@ carritoCounter();
 const saveLocal = () => {
     localStorage.setItem("carrito", JSON.stringify (carrito));
 };
+/* libreria, button */
+/*  btnCarrito.addEventListener ("click", ()=>{
+    Toastify({
+        text: "Su producto fue agregado con exito",
+        duration: 3000,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "left", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "linear-gradient(to right, #00b09b, #96c93d)",
+        },
+        onClick: function(){} // Callback after click
+      }).showToast();
+}) */
