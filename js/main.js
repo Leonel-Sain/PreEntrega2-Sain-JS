@@ -19,7 +19,7 @@ let product
 //get item = obtenemos lo que guardamos con el set item
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-const productos=[
+/* const productos=[
     {id: 1, nombre: "Secador de piso", precio: 450,img: "assets/imagenes/detergente-MF.jpg", cantidad: 1, },
     {id: 2, nombre: "Jabon Skip X 5l", precio: 650, img: "assets/imagenes/jabon-liquido-skip-MF.jpg",cantidad: 1,},
     {id: 3, nombre: "Jabon Ariel X 5l", precio: 500, img: "assets/imagenes/jabon-liquido-ariel-MF.jpg",cantidad: 1,},
@@ -43,21 +43,21 @@ const productos=[
     {id: 21, nombre: "Desodorante de piso Papaya X 5l", precio: 350, img: "assets/imagenes/jabon-liquido-ariel-MF.jpg",cantidad: 1,},
     {id: 22, nombre: "Desodorante de piso Lysoform X 5l", precio:350 , img: "assets/imagenes/jabon-liquido-ariel-MF.jpg",cantidad: 1,},
 ];
-
-fetch ("./data/datos.json")
+ */
+/* fetch ("./data/datos.json")
 .then ((resp) => resp.json())
 .then ((data) =>{
     console.log (data);
-})
+}) */
 
 // INICIO DE CARRITO DE COMPRAS
 
 //INTENTO DE BARRA DE BUSQUEDA, por consola busca, pero no pinta la card
 
-const buscador = () => {
-    let inputTexto = document.getElementById("search");
+/* const buscador = () => {
+    let inputTexto = document.getElementById("searchBtn");
     inputTexto.addEventListener('change', () => {
-      let buscador = inputTexto.value;
+      let buscador1 = inputTexto.value;
       console.log(buscador);
       prodEncontrado= productos.filter((productos) =>
         productos.nombre.includes(buscador.toUpperCase())
@@ -86,9 +86,32 @@ const buscador = () => {
       });
     });
   };
-    buscador ();
+    buscador (); */
+
+
+    function search () {
+        let filter = document.getElementById("find").value.toUpperCase();
+        let item = document.getElementById (".card");
+        let l =document.getElementsByTagName("h5");
+       
+        for (let i = 0; i <= l.length; i++) {
+            let a =item[i].document.getElementsByTagName("h5")[0];
+            let value =a.innerHTML || a.innerText || a.textContent;
+
+            if(value.toUpperCase().indexOf(filter) > -1){
+                item [i] .style.display="";
+            }else{
+                item[i].style.display="none";
+            }   
+        }
+    }
 //CREACION DE DIV + CARD
-productos.forEach((product)=>{
+
+const products = async () =>{
+const response = await fetch("./data/datos.json");
+const data = await response.json();
+
+data.forEach((product)=>{
     content = document.createElement("div");
     content.className = "card";
     content.innerHTML = ` 
@@ -103,7 +126,6 @@ productos.forEach((product)=>{
     comprar.className = "btn btn-outline-primary"
     content.append(comprar); 
 /* libreria, button */
-
     comprar.addEventListener("click",() =>{
         Toastify({
             text: "Su producto fue agregado con exito",
@@ -135,6 +157,9 @@ productos.forEach((product)=>{
     saveLocal();
     });
 });
+};
+products();
+
 /* HEADER CONTENT CARRITO */
 const pintarCarrito = () => {
     modalContainer.innerHTML= "";
@@ -154,6 +179,7 @@ const pintarCarrito = () => {
         modalContainer.style.display = "none";
     })
     modalHeader.append(modalButton);
+
 /* CARRITO DE COMPRAS */
     carrito.forEach((product) => {
         carritoContent = document.createElement("div")
@@ -166,6 +192,7 @@ const pintarCarrito = () => {
                 <h5>Cantidad: ${product.cantidad}</h5>
                 <span class="sumar"> + </span>
                 <h5>Total: ${product.cantidad * product.precio}</h5>
+                <span class="delete-product"> ✖ </span>
                 `;
 
         modalContainer.append(carritoContent);
@@ -184,14 +211,25 @@ const pintarCarrito = () => {
             saveLocal();
             pintarCarrito();
         });
-
-        eliminar = document.createElement("span");
-        eliminar.innerText= "✖";
-        eliminar.className= "delete-product";
-        carritoContent.append(eliminar)
-        eliminar.addEventListener("click", eliminarProductos);
-        
+         eliminar = carritoContent.querySelector(".delete-product")
+         eliminar.addEventListener("click", () => {
+            eliminarProductos(product.id);
+            /* libreria, button */
+            Toastify({
+                text: "Eliminado correctamente",
+                duration: 3000,
+                close: true,
+                gravity: "top", 
+                position: "left", 
+                stopOnFocus: true, 
+                style: {
+                  background: "linear-gradient(to right, rgba(34, 52, 151, 0.021), rgb(128, 215, 203)))",
+                },
+                onClick: function(){} 
+              }).showToast();
+         })
     });
+
 /* PRECIO FINAL DE LOS PRODUCTOS (el total)*/
     const total = carrito.reduce((acc, el) => acc + el.precio * el.cantidad, 0);
 
@@ -200,11 +238,13 @@ const pintarCarrito = () => {
     totalBuying.innerHTML =  `
     total a pagar: ${total} $`;
     modalContainer.append(totalBuying);
-
 };
+
+//ELIMINAR PRODUCTOS AGREGADOS AL CARRITO DE COMPRAS
 verCarrito.addEventListener("click",pintarCarrito)
-const eliminarProductos = () => {
-    const foundId = carrito.find ((element) => element.id);
+
+const eliminarProductos = (id) => {
+    const foundId = carrito.find ((element) => element.id === id);
     carrito = carrito.filter ((carritoId) => {
         return carritoId !== foundId;
     })
@@ -224,18 +264,3 @@ carritoCounter();
 const saveLocal = () => {
     localStorage.setItem("carrito", JSON.stringify (carrito));
 };
-/* libreria, button */
-/*  btnCarrito.addEventListener ("click", ()=>{
-    Toastify({
-        text: "Su producto fue agregado con exito",
-        duration: 3000,
-        close: true,
-        gravity: "top", // `top` or `bottom`
-        position: "left", // `left`, `center` or `right`
-        stopOnFocus: true, // Prevents dismissing of toast on hover
-        style: {
-          background: "linear-gradient(to right, #00b09b, #96c93d)",
-        },
-        onClick: function(){} // Callback after click
-      }).showToast();
-}) */
