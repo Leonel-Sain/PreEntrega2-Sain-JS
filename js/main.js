@@ -278,6 +278,9 @@ const pintarCarrito = () => {
             'Muchas gracias por su compra !',
             'success'
           )
+        carrito.splice(0, carrito.length)
+        localStorage.setItem("carrito", carrito)
+        pintarCarrito();
         } else if (
           /* Read more about handling dismissals below */
           result.dismiss === Swal.DismissReason.cancel
@@ -314,6 +317,6 @@ const carritoCounter = () => {
 carritoCounter();
 //set item = para setiar a localstorage mandar informacion
 const saveLocal = () => {
-    localStorage.setItem("carrito", JSON.stringify (carrito));
+    localStorage.setItem("carrito", JSON.stringify(carrito));
 };
 
