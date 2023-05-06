@@ -1,15 +1,15 @@
 //DECLARACION DE VARIABLES E ID
 const busqueda = document.querySelector("#search")
 const shopBusqueda = document.querySelector("#shopBusqueda")
-const buttonBusqueda = document.querySelector ("#btnSearch")
-const shop= document.querySelector("#shopContent");
+const buttonBusqueda = document.querySelector("#btnSearch")
+const shop = document.querySelector("#shopContent");
 const btnCarrito = document.querySelector("#btnC");
 const precioProducto = document.querySelector("#precio");
-const verCarrito = document.querySelector ("#verCarrito");
-const modalContainer = document.querySelector ("#modalContainer");
-const cantidadCarrito = document.querySelector ("#cantidadCarrito");
+const verCarrito = document.querySelector("#verCarrito");
+const modalContainer = document.querySelector("#modalContainer");
+const cantidadCarrito = document.querySelector("#cantidadCarrito");
 const formulario = document.querySelector("#formulario");
-let content 
+let content
 let comprar
 let carritoContent
 let prodEncontrado
@@ -45,153 +45,100 @@ let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     {id: 22, nombre: "Desodorante de piso Lysoform X 5l", precio:350 , img: "assets/imagenes/jabon-liquido-ariel-MF.jpg",cantidad: 1,},
 ];
  */
-/* fetch ("./data/datos.json")
-.then ((resp) => resp.json())
-.then ((data) =>{
-    console.log (data);
-}) */
+
 
 // INICIO DE CARRITO DE COMPRAS
 
 //INTENTO DE BARRA DE BUSQUEDA, por consola busca, pero no pinta la card
 
-/* const buscador = () => {
-    let inputTexto = document.getElementById("formulario");
-    inputTexto.addEventListener('change', () => {
-      let guardado = inputTexto.value;
-      console.log(buscador);
-      prodEncontrado= products.filter((productos) =>
-        productos.nombre.includes(buscador.toUpperCase())
-      );
-      shopBusqueda.innerHTML = '';
+const inputBusqueda = document.getElementById("formulario")
 
-      prodEncontrado.forEach((productos) => {
+inputBusqueda.addEventListener("keyup", async (e) => {
+    const entrada = e.target.value.toLowerCase()
+    console.log(entrada);
+    const response = await fetch("./data/datos.json");
+    const data = await response.json();
+
+    const productosFiltrados = await data.filter(p => p.nombre.toLowerCase()  == entrada)
+    console.log(productosFiltrados);
+})
+
+//CREACION DE DIV + CARD
+
+const products = async () => {
+    const response = await fetch("./data/datos.json");
+    const data = await response.json();
+
+    data.forEach((product) => {
         content = document.createElement("div");
         content.className = "card";
-        let { id, nombre, precio, img, } = productos;
-  
         content.innerHTML = ` 
-        <img class"ph" src="${product.img}">
-        <h5>${product.nombre}</h5>
-        <h4 class="price" >${product.precio} $</h4>
-        `;
+    <img class"ph" src="${product.img}">
+    <h5>${product.nombre.toLowerCase()}</h5>
+    <h4 class="price" >${product.precio} $</h4>
+    `;
         shop.append(content)
 
         comprar = document.createElement("button")
         comprar.innerText = "Añadir al carrito";
         comprar.className = "btn btn-outline-primary"
-        prodEncontrado.innerHTML = content;
-        prodEncontrado
-          .addEventListener('click', () => carrito(productos));
         content.append(comprar);
-      });
-    });
-  };
-formulario.addEventListener("keyup", filtrar)
+        /* libreria, button */
+        comprar.addEventListener("click", () => {
+            Toastify({
+                text: "Su producto fue agregado con exito",
+                duration: 3000,
+                close: true,
+                gravity: "bottom",
+                position: "right",
+                stopOnFocus: true,
+                style: {
+                    background: "linear-gradient(to right, rgba(34, 52, 151, 0.021), rgb(128, 215, 203)))",
+                },
+                onClick: function () { }
+            }).showToast();
+            /* agregado al carrito */
+            const repeat = carrito.some((repeatProduct) => repeatProduct.id === product.id);
 
-    buscador ();  */
-
-   /*      const filtrar = () => {
-            shopBusqueda.innerHTML = ""; 
-        const texto = formulario.value.toLowerCase();
-        for ( data of products){
-            let nombre = product.nombre.toLowerCase();
-            if (nombre.indexOf (texto) !== -1){
-           shopBusqueda.innerHTML += ` 
-           <img class"ph" src="${product.img}">
-           <h5>${product.nombre}</h5>
-           <h4 class="price" >${product.precio} $</h4>
-           `;
-            }
-        }
-        if(shopBusqueda.innerHTML===""){
-            shopBusqueda.innerHTML +=` 
-            <h4 Producto no encontrado...</h4>
-            `;
-        }
-     }
-    formulario.addEventListener("keyup", filtrar)
-     filtrar()
- */
-
-
-
-//CREACION DE DIV + CARD
-
-const products = async () =>{
-const response = await fetch("./data/datos.json");
-const data = await response.json();
-
-data.forEach((product)=>{
-    content = document.createElement("div");
-    content.className = "card";
-    content.innerHTML = ` 
-    <img class"ph" src="${product.img}">
-    <h5>${product.nombre.toUpperCase()}</h5>
-    <h4 class="price" >${product.precio} $</h4>
-    `;
-     shop.append(content)
-
-    comprar = document.createElement("button")
-    comprar.innerText = "Añadir al carrito";
-    comprar.className = "btn btn-outline-primary"
-    content.append(comprar); 
-/* libreria, button */
-    comprar.addEventListener("click",() =>{
-        Toastify({
-            text: "Su producto fue agregado con exito",
-            duration: 3000,
-            close: true,
-            gravity: "bottom", 
-            position: "right", 
-            stopOnFocus: true, 
-            style: {
-              background: "linear-gradient(to right, rgba(34, 52, 151, 0.021), rgb(128, 215, 203)))",
-            },
-            onClick: function(){} 
-          }).showToast();
- /* agregado al carrito */
-        const repeat = carrito.some((repeatProduct) => repeatProduct.id === product.id);
-        
-(repeat)? carrito.map((prod) => {
-    if(prod.id === product.id){
-            prod.cantidad++;
+            (repeat) ? carrito.map((prod) => {
+                if (prod.id === product.id) {
+                    prod.cantidad++;
                 }
             })
-: carrito.push({ id: product.id,img: product.img,
-            nombre: product.nombre,
-            precio: product.precio,
-            cantidad: product.cantidad,
+                : carrito.push({
+                    id: product.id, img: product.img,
+                    nombre: product.nombre,
+                    precio: product.precio,
+                    cantidad: product.cantidad,
+                });
+            carritoCounter();
+            saveLocal();
         });
-    
-    carritoCounter();
-    saveLocal();
     });
-});
 };
 products();
 
 /* HEADER CONTENT CARRITO */
 const pintarCarrito = () => {
-    modalContainer.innerHTML= "";
-    modalContainer.style.display= "flex";
+    modalContainer.innerHTML = "";
+    modalContainer.style.display = "flex";
     const modalHeader = document.createElement("div");
-    modalHeader.className= "modal-header"
+    modalHeader.className = "modal-header"
     modalHeader.innerHTML = ` 
     <h1 class= "modal-header-title">Carrito de compras.</h1>
     `;
     modalContainer.append(modalHeader);
 
-    const modalButton= document.createElement ("h3");
+    const modalButton = document.createElement("h3");
     modalButton.innerText = "X";
     modalButton.className = "modalHeaderButton";
 
-    modalButton.addEventListener ("click",() => {
+    modalButton.addEventListener("click", () => {
         modalContainer.style.display = "none";
     })
     modalHeader.append(modalButton);
 
-/* CARRITO DE COMPRAS */
+    /* CARRITO DE COMPRAS */
     carrito.forEach((product) => {
         carritoContent = document.createElement("div")
         carritoContent.className = "modal-content"
@@ -208,45 +155,45 @@ const pintarCarrito = () => {
 
         modalContainer.append(carritoContent);
         restar = carritoContent.querySelector(".restar")
-        restar.addEventListener("click", () =>{
-            if(product.cantidad !== 1){
-            product.cantidad--;
-        }
+        restar.addEventListener("click", () => {
+            if (product.cantidad !== 1) {
+                product.cantidad--;
+            }
             saveLocal();
             pintarCarrito();
         });
 
-        sumar = carritoContent.querySelector (".sumar")
+        sumar = carritoContent.querySelector(".sumar")
         sumar.addEventListener("click", () => {
             product.cantidad++;
             saveLocal();
             pintarCarrito();
         });
-         eliminar = carritoContent.querySelector(".delete-product")
-         eliminar.addEventListener("click", () => {
+        eliminar = carritoContent.querySelector(".delete-product")
+        eliminar.addEventListener("click", () => {
             eliminarProductos(product.id);
             /* libreria, button */
             Toastify({
                 text: "Eliminado correctamente",
                 duration: 3000,
                 close: true,
-                gravity: "top", 
-                position: "left", 
-                stopOnFocus: true, 
+                gravity: "top",
+                position: "left",
+                stopOnFocus: true,
                 style: {
-                  background: "linear-gradient(to right, rgba(34, 52, 151, 0.021), rgb(128, 215, 203)))",
+                    background: "linear-gradient(to right, rgba(34, 52, 151, 0.021), rgb(128, 215, 203)))",
                 },
-                onClick: function(){} 
-              }).showToast();
-         })
+                onClick: function () { }
+            }).showToast();
+        })
     });
 
-/* PRECIO FINAL DE LOS PRODUCTOS (el total)*/
+    /* PRECIO FINAL DE LOS PRODUCTOS (el total)*/
     const total = carrito.reduce((acc, el) => acc + el.precio * el.cantidad, 0);
 
     const totalBuying = document.createElement("div")
     totalBuying.className = "totalContent"
-    totalBuying.innerHTML =  `
+    totalBuying.innerHTML = `
     total a pagar: ${total} $
     <button id="botoncito" class="btn btn-outline-primary">Realizar compra: </button>
     `;
@@ -254,53 +201,53 @@ const pintarCarrito = () => {
 
     let realiarCompra = document.querySelector("#botoncito")
     realiarCompra.addEventListener("click", () => {
-       /* libreria, button */
-       const swalWithBootstrapButtons = Swal.mixin({
-        customClass: {
-          confirmButton: 'btn btn-success',
-          cancelButton: 'btn btn-danger'
-        },
-        buttonsStyling: false
-      })
-      
-      swalWithBootstrapButtons.fire({
-        title: 'Realizar compra',
-        text: "Desea comprar todos estos productos?",
-        icon: 'info',
-        showCancelButton: true,
-        confirmButtonText: 'si, comprar!',
-        cancelButtonText: 'No, cancelar!',
-        reverseButtons: true
-      }).then((result) => {
-        if (result.isConfirmed) {
-          swalWithBootstrapButtons.fire(
-            'Compra realizada con exito !',
-            'Muchas gracias por su compra !',
-            'success'
-          )
-        carrito.splice(0, carrito.length)
-        localStorage.setItem("carrito", carrito)
-        pintarCarrito();
-        } else if (
-          /* Read more about handling dismissals below */
-          result.dismiss === Swal.DismissReason.cancel
-        ) {
-          swalWithBootstrapButtons.fire(
-            'No pudimos realizar la compra',
-            'Intentelo mas tarde muchas gracias ! :)',
-            'error'
-          )
-        }
-      })
+        /* libreria, button */
+
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: 'btn btn-success',
+                cancelButton: 'btn btn-danger'
+            },
+            buttonsStyling: false
+        })
+
+        swalWithBootstrapButtons.fire({
+            title: 'Realizar compra',
+            text: "Desea comprar todos estos productos?",
+            icon: 'info',
+            showCancelButton: true,
+            confirmButtonText: 'si, comprar!',
+            cancelButtonText: 'No, cancelar!',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                swalWithBootstrapButtons.fire(
+                    'Compra realizada con exito !',
+                    'Muchas gracias por su compra !',
+                    'success'
+                )
+                carrito.splice(0, carrito.length)
+                localStorage.setItem("carrito", JSON.stringify(carrito))
+                pintarCarrito();
+            } else if (
+                /* Read more about handling dismissals below */
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swalWithBootstrapButtons.fire(
+                    'No pudimos realizar la compra',
+                    'Intentelo mas tarde muchas gracias ! :)',
+                    'error'
+                )
+            }
+        })
     })
 };
-
 //ELIMINAR PRODUCTOS AGREGADOS AL CARRITO DE COMPRAS
-verCarrito.addEventListener("click",pintarCarrito)
+verCarrito.addEventListener("click", pintarCarrito)
 
 const eliminarProductos = (id) => {
-    const foundId = carrito.find ((element) => element.id === id);
-    carrito = carrito.filter ((carritoId) => {
+    const foundId = carrito.find((element) => element.id === id);
+    carrito = carrito.filter((carritoId) => {
         return carritoId !== foundId;
     })
     carritoCounter();
