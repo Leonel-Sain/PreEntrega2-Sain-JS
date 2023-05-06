@@ -20,56 +20,12 @@ let product
 //get item = obtenemos lo que guardamos con el set item
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-/* const productos=[
-    {id: 1, nombre: "Secador de piso", precio: 450,img: "assets/imagenes/detergente-MF.jpg", cantidad: 1, },
-    {id: 2, nombre: "Jabon Skip X 5l", precio: 650, img: "assets/imagenes/jabon-liquido-skip-MF.jpg",cantidad: 1,},
-    {id: 3, nombre: "Jabon Ariel X 5l", precio: 500, img: "assets/imagenes/jabon-liquido-ariel-MF.jpg",cantidad: 1,},
-    {id: 4, nombre: "Jabon Skip X 1l", precio: 120, img: "assets/imagenes/jabon-liquido-ariel-MF.jpg",cantidad: 1,},
-    {id: 5, nombre: "Jabon Ariel X 1l",  precio: 150, img: "assets/imagenes/jabon-liquido-ariel-MF.jpg",cantidad: 1,},
-    {id: 6, nombre: "Suavizante Vivere X 1l",  precio: 100, img:"assets/imagenes/suavizante-vivere-MF.jpg",cantidad: 1,},
-    {id: 7, nombre: "Suavizante Confort X 1l",  precio: 120, img: "assets/imagenes/jabon-liquido-ariel-MF.jpg",cantidad: 1,},
-    {id: 8, nombre: "Suavizante Vivere X 5l", precio: 550, img: "assets/imagenes/jabon-liquido-ariel-MF.jpg",cantidad: 1,},
-    {id: 9, nombre: "Suavizante Confort X 5l", precio: 600, img: "assets/imagenes/jabon-liquido-ariel-MF.jpg",cantidad: 1,},
-    {id: 10, nombre: "Suavizante Triple fragancia X 5l", precio: 600, img: "assets/imagenes/jabon-liquido-ariel-MF.jpg",cantidad: 1,},
-    {id: 11, nombre: "Lavandina X 5l", precio: 350, img:"assets/imagenes/lavandina-MF.jpg",cantidad: 1,},
-    {id: 12, nombre: "Detergente X 1l", precio: 200, img:"assets/imagenes/detergente-MF.jpg" ,cantidad: 1,},
-    {id: 13, nombre: "Desengrasante X 5l", precio: 400, img: "assets/imagenes/jabon-liquido-ariel-MF.jpg",cantidad: 1,},
-    {id: 14, nombre: "Perfumina X 1/2 L", precio: 350, img: "assets/imagenes/jabon-liquido-ariel-MF.jpg",cantidad: 1,},
-    {id: 15, nombre: "Desodorante de piso Citronela X 5l", oferta: "Oferta!", precio: 250, img: "assets/imagenes/jabon-liquido-ariel-MF.jpg",cantidad: 1,},
-    {id: 16, nombre: "Desodorante de piso Espadol X 5l", precio:350, img: "assets/imagenes/jabon-liquido-ariel-MF.jpg",cantidad: 1,},
-    {id: 17, nombre: "Desodorante de piso Procenex X 5l", precio:250, img: "assets/imagenes/jabon-liquido-ariel-MF.jpg",cantidad: 1,},
-    {id: 18, nombre: "Desodorante de piso Bebe X 5l", precio:350, img: "assets/imagenes/jabon-liquido-ariel-MF.jpg",cantidad: 1,},
-    {id: 19, nombre: "Desodorante de piso Lavanda X 5l", precio:350, img: "assets/imagenes/jabon-liquido-ariel-MF.jpg",cantidad: 1,},
-    {id: 20, nombre: "Desodorante de piso Chicle X 5l", precio:250, img: "assets/imagenes/jabon-liquido-ariel-MF.jpg",cantidad: 1,},
-    {id: 21, nombre: "Desodorante de piso Papaya X 5l", precio: 350, img: "assets/imagenes/jabon-liquido-ariel-MF.jpg",cantidad: 1,},
-    {id: 22, nombre: "Desodorante de piso Lysoform X 5l", precio:350 , img: "assets/imagenes/jabon-liquido-ariel-MF.jpg",cantidad: 1,},
-];
- */
-
-
 // INICIO DE CARRITO DE COMPRAS
-
-//INTENTO DE BARRA DE BUSQUEDA, por consola busca, pero no pinta la card
-
-const inputBusqueda = document.getElementById("formulario")
-
-inputBusqueda.addEventListener("keyup", async (e) => {
-    const entrada = e.target.value.toLowerCase()
-    console.log(entrada);
-    const response = await fetch("./data/datos.json");
-    const data = await response.json();
-
-    const productosFiltrados = await data.filter(p => p.nombre.toLowerCase()  == entrada)
-    console.log(productosFiltrados);
-})
-
 //CREACION DE DIV + CARD
+const renderProducts = (array) => {
+    shop.innerHTML = "";
 
-const products = async () => {
-    const response = await fetch("./data/datos.json");
-    const data = await response.json();
-
-    data.forEach((product) => {
+    array.forEach((product) => {
         content = document.createElement("div");
         content.className = "card";
         content.innerHTML = ` 
@@ -115,6 +71,29 @@ const products = async () => {
             saveLocal();
         });
     });
+}
+//BARRA DE BUSQUEDA
+const inputBusqueda = document.getElementById("formulario")
+
+inputBusqueda.addEventListener("keyup", async (e) => {
+    const entrada = e.target.value.toLowerCase()
+    console.log(entrada);
+    const response = await fetch("./data/datos.json");
+    const data = await response.json();
+
+    const productosFiltrados = await data.filter(p => p.nombre.toLowerCase().includes(entrada))
+    console.log(productosFiltrados);
+    renderProducts(productosFiltrados);
+})
+
+//CREACION DE DIV + CARD
+
+const products = async () => {
+    const response = await fetch("./data/datos.json");
+    const data = await response.json();
+
+    renderProducts(data)
+
 };
 products();
 
