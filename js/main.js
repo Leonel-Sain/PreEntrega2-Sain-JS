@@ -8,6 +8,7 @@ const precioProducto = document.querySelector("#precio");
 const verCarrito = document.querySelector ("#verCarrito");
 const modalContainer = document.querySelector ("#modalContainer");
 const cantidadCarrito = document.querySelector ("#cantidadCarrito");
+const formulario = document.querySelector("#formulario");
 let content 
 let comprar
 let carritoContent
@@ -55,11 +56,11 @@ let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 //INTENTO DE BARRA DE BUSQUEDA, por consola busca, pero no pinta la card
 
 /* const buscador = () => {
-    let inputTexto = document.getElementById("searchBtn");
+    let inputTexto = document.getElementById("formulario");
     inputTexto.addEventListener('change', () => {
-      let buscador1 = inputTexto.value;
+      let guardado = inputTexto.value;
       console.log(buscador);
-      prodEncontrado= productos.filter((productos) =>
+      prodEncontrado= products.filter((productos) =>
         productos.nombre.includes(buscador.toUpperCase())
       );
       shopBusqueda.innerHTML = '';
@@ -86,25 +87,32 @@ let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
       });
     });
   };
-    buscador (); */
+formulario.addEventListener("keyup", filtrar)
 
+    buscador ();  */
 
-    function search () {
-        let filter = document.getElementById("find").value.toUpperCase();
-        let item = document.getElementById (".card");
-        let l =document.getElementsByTagName("h5");
-       
-        for (let i = 0; i <= l.length; i++) {
-            let a =item[i].document.getElementsByTagName("h5")[0];
-            let value =a.innerHTML || a.innerText || a.textContent;
-
-            if(value.toUpperCase().indexOf(filter) > -1){
-                item [i] .style.display="";
-            }else{
-                item[i].style.display="none";
-            }   
+   /*      const filtrar = () => {
+            shopBusqueda.innerHTML = ""; 
+        const texto = formulario.value.toLowerCase();
+        for ( data of products){
+            let nombre = product.nombre.toLowerCase();
+            if (nombre.indexOf (texto) !== -1){
+           shopBusqueda.innerHTML += ` 
+           <img class"ph" src="${product.img}">
+           <h5>${product.nombre}</h5>
+           <h4 class="price" >${product.precio} $</h4>
+           `;
+            }
         }
-    }
+        if(shopBusqueda.innerHTML===""){
+            shopBusqueda.innerHTML +=` 
+            <h4 Producto no encontrado...</h4>
+            `;
+        }
+     }
+    formulario.addEventListener("keyup", filtrar)
+     filtrar()
+ */
 //CREACION DE DIV + CARD
 
 const products = async () =>{
