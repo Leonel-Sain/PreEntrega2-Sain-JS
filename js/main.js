@@ -113,6 +113,9 @@ formulario.addEventListener("keyup", filtrar)
     formulario.addEventListener("keyup", filtrar)
      filtrar()
  */
+
+
+
 //CREACION DE DIV + CARD
 
 const products = async () =>{
@@ -124,7 +127,7 @@ data.forEach((product)=>{
     content.className = "card";
     content.innerHTML = ` 
     <img class"ph" src="${product.img}">
-    <h5>${product.nombre}</h5>
+    <h5>${product.nombre.toUpperCase()}</h5>
     <h4 class="price" >${product.precio} $</h4>
     `;
      shop.append(content)
@@ -244,8 +247,49 @@ const pintarCarrito = () => {
     const totalBuying = document.createElement("div")
     totalBuying.className = "totalContent"
     totalBuying.innerHTML =  `
-    total a pagar: ${total} $`;
+    total a pagar: ${total} $
+    <button id="botoncito" class="btn btn-outline-primary">Realizar compra: </button>
+    `;
     modalContainer.append(totalBuying);
+
+    let realiarCompra = document.querySelector("#botoncito")
+    realiarCompra.addEventListener("click", () => {
+       /* libreria, button */
+       const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+          confirmButton: 'btn btn-success',
+          cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+      })
+      
+      swalWithBootstrapButtons.fire({
+        title: 'Realizar compra',
+        text: "Desea comprar todos estos productos?",
+        icon: 'info',
+        showCancelButton: true,
+        confirmButtonText: 'si, comprar!',
+        cancelButtonText: 'No, cancelar!',
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+          swalWithBootstrapButtons.fire(
+            'Compra realizada con exito !',
+            'Muchas gracias por su compra !',
+            'success'
+          )
+        } else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire(
+            'No pudimos realizar la compra',
+            'Intentelo mas tarde muchas gracias ! :)',
+            'error'
+          )
+        }
+      })
+    })
 };
 
 //ELIMINAR PRODUCTOS AGREGADOS AL CARRITO DE COMPRAS
@@ -272,3 +316,4 @@ carritoCounter();
 const saveLocal = () => {
     localStorage.setItem("carrito", JSON.stringify (carrito));
 };
+
