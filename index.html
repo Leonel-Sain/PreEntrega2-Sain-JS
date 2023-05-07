@@ -1,148 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- fontFamily -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
-    <!-- Animaciones -->
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <!-- libreria -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    <!--link bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>	
-    <link rel="stylesheet" href="css/style.css">
-    <title>Clase 1 y 2 de JavaScript</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- fontFamily -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+  <!-- Animaciones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <!-- libreria -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <!-- favicon -->
+  <link rel="shortcut icon" href="assets/imagenes/logo-MF.png" type="image/x-icon">
+  <!--link bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <title>Clase 1 y 2 de JavaScript</title>
 </head>
+
 <body>
   <!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg  bg-success p-2 text-dark bg-opacity-10 fixed-top ">
+  <nav class="navbar navbar-expand-lg  bg-success p-2 text-dark bg-opacity-10 fixed-top ">
     <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-              <div class="collapse navbar-collapse justify-content-left" id="navbarSupportedContent">
-                <ul class="navbar-nav  mb-3 mb-lg-1">
-                  <li class="nav-item">
-                    <a class="nav-link " href="#scrollspyHeading1">/ Nosotros</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#scrollspyHeading2">/ Fotos</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link " href="#scrollspyHeading3">/ Servicios</a>
-                  </li>
-                 </ul>
-                 <div class="align-items-center bs ">
-                 <!--  <label id="btnSearch" class="btn btn-outline-primary" for="search">Buscar</label>
-                  <input id="search1" type="text" class="validate busqueda" > -->
-                  <input type="text" name="" id="formulario" placeholder="search here...." >
-                </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-left" id="navbarSupportedContent">
+        <ul class="navbar-nav  mb-3 mb-lg-1">
+          <li class="nav-item">
+            <a class="nav-link " href="#footer">Nosotros</a>
+          </li>
+
+        </ul>
+        <div class="align-items-center bs ">
+          <input type="text" class="validate busqueda" name="" id="formulario" placeholder="Buscador..">
+        </div>
+      </div>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+        <ul class="navbar-nav  mb-3 mb-lg-1">
+          <li class="nav-item">
+            <a class="nav-link " id="verCarrito" href="#compras">Compras<img src="assets/iconos/carrito-compras.png"
+                width="35px" alt=""></a>
+          </li>
+          <li class="nav-item">
+            <div class="contador">
+              <span id="cantidadCarrito" class="cantidad-carrito btn btn-outline-primary"> </span>
             </div>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-              <ul class="navbar-nav  mb-3 mb-lg-1">
-                  <li class="nav-item">
-                    <a  class="nav-link " id="verCarrito" href="#compras">Compras<img src="assets/iconos/carrito-compras.png" width="35px"  alt=""></a>
-                  </li>
-                   <li class="nav-item">
-                      <div class="contador">
-                      <span id="cantidadCarrito" class="cantidad-carrito btn btn-outline-primary"> </span>
-                    </div>
-                  </li>
-               </ul>
-          </div>
-    </div>
-</nav>
-<!-- FIN NAVBAR -->
-<!-- BANNER -->
-<div class="container-fluid imgBg  justify-content-left">
-  <div class="row align-items-center d-flex">
-    <div class="col-lg-4  ">
-      <img class="imgMf animate__animated  animate__backInLeft" src="assets/imagenes/mf.png" width="80%" alt="">
-    </div>
-    <div class="col-lg-8 ">
-      <h1 class="title animate__animated  animate__backInDown text-center ">Productos de Limpieza  <hr> </h1>
-      <h3 class="title2 animate__animated  animate__fadeIn text-center ">La mejor calidad en productos</h3>
-    </div>
-  </div>
-</div>
-<!-- FIN BANNER -->
-
-<!--  INTRODUCCION A PRODUCTOS-->
-<div class="container-fluid d-flex justify-content-center intro">
-  <div class="col-lg-4 col-md-4 col-sm-none ">
-    <div class="row justify-content-left">
-          <img src="assets/imagenes/limpieza.png" width="100%" alt="">
-    </div>
-  </div>
-  <div class="col-lg-8 col-md-8 col-sm-12 d-flex align-items-center">
-    <div class="row">
-        <h2>¿Necesitas productos de limpieza para tu hogar? <hr> Los mejores precios y productos los vas a encotrar aqui!<hr></h2>
-            <p> <strong>MF productos de limpieza</strong> Ofrece diferentes productos de limpieza para tu hogar, como
-            <strong>Perfuminas, </strong><strong>Jabón para la ropa, Skip o Ariel, </strong><strong>Suavizantes, </strong>
-            y mucho mas ! </p> 
-    </div>
-  </div>
-</div>
-<br><br><br><br><br><br>
-
-<!-- SHOP CONTENT -->
-<div id="shopContent" class="shop-content "> <!-- contenido dinamico. --></div>
-<!-- <div id="shopBusqueda" class="shop-content"> contenido dinamico. --><!-- </div> -->
-<!-- MODAL CONTENT -->
-<div id="modalContainer" class="modalCarrito animate__animated  animate__backInDown"> <!--contenido dinamico del modal. --></div>
-<!-- FINALIZAR COMPRA -->
-<!-- 
-<div class="contenedor credit-card">
-  <h3>Finalizar Compra</h3>
-  <form action="" id="credit-card">
-    <div class="form-control">
-      <label for="card-number">Nombre del titular</label>
-      <input type="text" placeholder="Max Power" id="titular" required />
-    </div>
-    <div class="form-control">
-      <label for="card-number">Número de tarjeta</label>
-      <input
-        type="text"
-        placeholder="0000 000 000 0000"
-        id="card-number"
-        required
-      />
-    </div>
-    <div class="form-control">
-      <label for="ccv">Código de seguridad</label>
-      <input
-        type="text"
-        id="ccv"
-        placeholder="000"
-        maxlength="3"
-        required
-      />
-    </div>
-    <div class="form-control">
-      <div class="icons">
-        <i class="fa-brands fa-cc-visa"></i>
-        <i class="fa-brands fa-cc-amex"></i>
-        <i class="fa-brands fa-cc-diners-club"></i>
-        <i class="fa-brands fa-cc-mastercard"></i>
+          </li>
+        </ul>
       </div>
     </div>
-    <div class="form-control">
-      <input type="submit" value="Comprar" class="btn btn-success" />
+  </nav>
+  <!-- FIN NAVBAR -->
+  <!-- BANNER -->
+  <div class="container-fluid imgBg  justify-content-left">
+    <div class="row align-items-center d-flex">
+      <div class="col-lg-4  ">
+        <img class="imgMf animate__animated  animate__backInLeft" src="assets/imagenes/mf.png" width="80%" alt="">
+      </div>
+      <div class="col-lg-8 ">
+        <h1 class="title animate__animated  animate__backInDown text-center ">Productos de Limpieza
+          <hr>
+        </h1>
+        <h3 class="title2 animate__animated  animate__fadeIn text-center ">La mejor calidad en productos</h3>
+      </div>
     </div>
-  </form>
-</div> -->
-<!-- libreria -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </div>
+  <!-- FIN BANNER -->
 
-<!-- LINK JS -->
-<script src="./js/main.js"></script>
+  <!--  INTRODUCCION A PRODUCTOS-->
+  <div class="container-fluid d-flex justify-content-center intro">
+    <div class="col-lg-4 col-md-4 col-sm-none ">
+      <div class="row justify-content-left">
+        <img src="assets/imagenes/limpieza.png" class="imgLimpieza" width="100%" alt="">
+      </div>
+    </div>
+    <div class="col-lg-8 col-md-8 col-sm-12 d-flex align-items-center">
+      <div class="row">
+        <h2>¿Necesitas productos de limpieza para tu hogar?
+          <hr> Los mejores precios y productos los vas a encotrar aqui!
+          <hr>
+        </h2>
+        <p> <strong>MF productos de limpieza</strong> Ofrece diferentes productos de limpieza para tu hogar, como
+          <strong>Perfuminas, </strong><strong>Jabón para la ropa, Skip o Ariel, </strong><strong>Suavizantes, </strong>
+          y mucho mas !
+        </p>
+      </div>
+    </div>
+  </div>
+  <br><br><br><br><br><br>
+
+  <!-- SHOP CONTENT -->
+  <div id="shopContent" class="shop-content "> <!-- contenido dinamico. --></div>
+  <!-- MODAL CONTENT -->
+  <div id="modalContainer" class="modalCarrito animate__animated  animate__backInDown">
+    <!--contenido dinamico del modal. -->
+  </div>
+
+
+  <!-- BTN -->
+  <div class="sectionTresLinks">
+    <a href="https://www.facebook.com/profile.php?id=100069372046947" class="btn-facebook" target="_blank"><img
+        src="assets/logos/facebook-logo.png" alt="imagen-logo-facebook"></a>
+    <a href="https://web.whatsapp.com/" target="_blank" class="btn-wsp"><img src="assets/logos/wtp-logo.png"
+        alt="imagen-logo-whatsapp"></a>
+  </div>
+  <!-- FIN LOGOS CON LINKS -->
+  <!-- INICIO FOOTER -->
+  <footer class="footerFinPagina" id="footer">
+    <div class="container-fluid  justify-content-left">
+      <div class="row align-items-center d-flex">
+        <div class="col-lg-4  ">
+          <img class="imgMf animate__animated  animate__backInLeft" src="assets/imagenes/limpieza2.png" width="80%"
+            alt="">
+        </div>
+        <div class="col-lg-8 ">
+          <h1 class="title text-center ">Productos de Limpieza
+            <hr>
+          </h1>
+          <div class="col-lg-11 col-md-11 col-sm-12 d-flex align-items-center etP">
+            <div class="row">
+              <p> <strong>MF productos de limpieza</strong> Somos un microemprendimiento de productos de limpieza,
+                queriendo ofrecer la mejor calidad en productos de limpieza.
+                <strong> Jabones liquidos para la ropa,</strong><strong> Desengrasantes,</strong><strong>
+                  Detergentes,</strong><strong> Perfuminas,</strong></strong><strong> Suavizantes,</strong>
+                y mucho mas !<strong> podes saber mas de nosotros, contactando por nuestro whatsapp o nuestras redes
+                  sociales como facebook.</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="etP">©DiseñoWeb-Sain 2023</p>
+  </footer>
+  <!-- libreria -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <!-- LINK JS -->
+  <script src="./js/main.js"></script>
 </body>
+
 </html>

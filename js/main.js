@@ -1,22 +1,19 @@
 //DECLARACION DE VARIABLES E ID
-const busqueda = document.querySelector("#search")
-const shopBusqueda = document.querySelector("#shopBusqueda")
-const buttonBusqueda = document.querySelector("#btnSearch")
 const shop = document.querySelector("#shopContent");
-const btnCarrito = document.querySelector("#btnC");
 const precioProducto = document.querySelector("#precio");
 const verCarrito = document.querySelector("#verCarrito");
 const modalContainer = document.querySelector("#modalContainer");
 const cantidadCarrito = document.querySelector("#cantidadCarrito");
-const formulario = document.querySelector("#formulario");
+const inputBusqueda = document.getElementById("formulario")
+
 let content
 let comprar
 let carritoContent
-let prodEncontrado
 let restar
 let sumar
 let eliminar
 let product
+let realiarCompra
 //get item = obtenemos lo que guardamos con el set item
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
@@ -73,7 +70,6 @@ const renderProducts = (array) => {
     });
 }
 //BARRA DE BUSQUEDA
-const inputBusqueda = document.getElementById("formulario")
 
 inputBusqueda.addEventListener("keyup", async (e) => {
     const entrada = e.target.value.toLowerCase()
@@ -178,7 +174,7 @@ const pintarCarrito = () => {
     `;
     modalContainer.append(totalBuying);
 
-    let realiarCompra = document.querySelector("#botoncito")
+    realiarCompra = document.querySelector("#botoncito")
     realiarCompra.addEventListener("click", () => {
         /* libreria, button */
 
@@ -200,11 +196,44 @@ const pintarCarrito = () => {
             reverseButtons: true
         }).then((result) => {
             if (result.isConfirmed) {
-                swalWithBootstrapButtons.fire(
-                    'Compra realizada con exito !',
-                    'Muchas gracias por su compra !',
-                    'success'
-                )
+                Swal.fire({
+                    title: '<strong>Realizar compra </strong>',
+                    icon: 'info',
+                    html:
+                    '<div class="contenedor credit-card" id="realizarCompra">'+
+                    '<h3>Finalizar Compra</h3>'+
+                    ' <form action="" id="credit-card">'+
+                    ' <div class="form-control">'+
+                    ' <label for="card-number">Nombre del titular</label>'+
+                    ' <input type="text" placeholder="Max Power" id="titular" required />'+
+                    ' </div>'+
+                    ' <div class="form-control">'+
+                    ' <label for="card-number">Número de tarjeta</label>'+
+                    ' <input type="text" placeholder="0000 000 000 0000" id="card-number" required />'+
+                    ' </div>'+
+                    ' <div class="form-control">'+
+                    '  <label for="ccv">Código de seguridad</label>'+
+                    '  <input type="text" id="ccv" placeholder="000" maxlength="3" required />'+
+                    ' </div>'+
+                    '<div class="form-control">'+
+                    ' <div class="icons">'+
+                    ' <i class="fa-brands fa-cc-visa"></i>'+
+                    '<i class="fa-brands fa-cc-amex"></i>'+
+                    ' <i class="fa-brands fa-cc-diners-club"></i>'+
+                    '  <i class="fa-brands fa-cc-mastercard"></i>'+
+                    ' </div>'+
+                    '  </div>',
+
+                    showCloseButton: true,
+                    showCancelButton: true,
+                    focusConfirm: false,
+                    confirmButtonText:
+                      '<i class="fa fa-thumbs-up"></i>Realizar compra',
+                    confirmButtonAriaLabel: 'Thumbs up, great!',
+                    cancelButtonText:
+                      '<i class="fa fa-thumbs-down"></i> Cancelar compra',
+                    cancelButtonAriaLabel: 'Thumbs down'
+                  })
                 carrito.splice(0, carrito.length)
                 localStorage.setItem("carrito", JSON.stringify(carrito))
                 pintarCarrito();

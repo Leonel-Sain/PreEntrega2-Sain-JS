@@ -139,19 +139,5 @@
        "precio":250,
        "img":"assets/imagenes/jabon-liquido-ariel-MF.jpg",
        "cantidad":1
-    },
-    {
-       "id":21,
-       "nombre":"Desodorante de piso Papaya X 5l",
-       "precio":350,
-       "img":"assets/imagenes/jabon-liquido-ariel-MF.jpg",
-       "cantidad":1
-    },
-    {
-       "id":22,
-       "nombre":"Desodorante de piso Lysoform X 5l",
-       "precio":350,
-       "img":"assets/imagenes/jabon-liquido-ariel-MF.jpg",
-       "cantidad":1
     }
  ]
