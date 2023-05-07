@@ -19,7 +19,7 @@ body{
 }
 .title{
     color: rgba(255, 255, 255, 0.836);
-    font-size: 3.2em;
+    font-size: 2.5em;
     font-family:'Quicksand', sans-serif;
 }
 .title2{
@@ -106,7 +106,7 @@ body{
  }
  
  .totalContent{
-    font-size: 35px;
+    font-size: 30px;
     padding: 20px;
     text-align: center;
     padding-top: 20px;
@@ -167,7 +167,7 @@ body{
     color: rgb(63, 63, 63);
 }
 .etP{
-    font-size: 20px;
+    font-size: 15px;
 }
 
 /*SCROOLLBAR*/
